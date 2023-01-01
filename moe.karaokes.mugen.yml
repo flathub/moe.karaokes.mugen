@@ -5,7 +5,7 @@ sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
 base-version: '22.08'
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node18
+  - org.freedesktop.Sdk.Extension.node16
 command: km-wrapper
 separate-locales: false
 finish-args:
@@ -32,7 +32,7 @@ modules:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
         npm_config_nodedir: /usr/lib/sdk/node16
     build-commands:
-      - install -D sentry-cli-Linux-x86_64 /app/bin/sentry-cli
+      - install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print $1'}) /app/bin/sentry-cli
       - >-
         HOME=$PWD yarn config --offline set yarn-offline-mirror
         $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
@@ -82,6 +82,17 @@ modules:
         url: >-
           https://downloads.sentry-cdn.com/sentry-cli/2.9.0/sentry-cli-Linux-x86_64
         sha256: 8d24e65b07eee362cd8e8b80a98b6029c66950c01cc58b4345f235fae2e243a4
+        only-arches: [x86_64]
+      - type: file
+        url: >-
+          https://downloads.sentry-cdn.com/sentry-cli/2.9.0/sentry-cli-Linux-aarch64
+        sha256: 0130b100deabf8a391945253de6dd173c021e0922bf0e0d0327b4c4ec6d1000f
+        only-arches: [aarch64]
       - type: archive
-        url: https://mugen.karaokes.moe/downloads/dist_linux-7.x.tar.gz
-        sha256: f82cda8d37fc991d67f938aa413eafbf2c6ea29ac9663690cdbac7f58005e55b
+        url: https://mugen.karaokes.moe/downloads/dist_linux-x64-7.x.tar.gz
+        sha256: 794c1f503265a7a086bba8b5465659b586bb9b70c55b130dba854dfa0af0e11a
+        only-arches: [x86_64]
+      - type: archive
+        url: https://mugen.karaokes.moe/downloads/dist_linux-arm64-7.x.tar.gz
+        sha256: c2d2a32659ae7b0afa18f492e32d9a2f65d8abf9b94aa3cabf753b2e143d7bfd
+        only-arches: [aarch64]
