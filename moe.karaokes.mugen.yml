@@ -27,12 +27,12 @@ modules:
   - name: karaokemugen
     buildsystem: simple
     build-options:
-      append-path: /usr/lib/sdk/node16/bin
+      append-path: /usr/lib/sdk/node18/bin
       env:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
         npm_config_nodedir: /usr/lib/sdk/node16
     build-commands:
-      - install -D sentry-cli-Linux-x86_64 /app/bin/sentry-cli
+      - install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print $1'}) /app/bin/sentry-cli
       - >-
         HOME=$PWD yarn config --offline set yarn-offline-mirror
         $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
@@ -47,7 +47,9 @@ modules:
         $ELECTRON_BUILDER_ARCH_ARGS
       - cp -r packages/linux*unpacked /app/km
       - install -d /app/km/app/
-      - cp -r bin/ /app/km/app/
+      - mv bin/x64 bin/x86_64
+      - install -d /app/km/app/bin
+      - cp -r bin/$(gcc --print-multiarch | awk -F- {'print $1'})/* /app/km/app/bin/
       - install -Dm755 stub_sandbox /app/km/chrome-sandbox
       - install -Dm755 km-wrapper /app/bin/km-wrapper
       - install -d /app/share/applications
@@ -63,8 +65,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/karaokemugen-app
-        commit: cb4f2d0036f3a19b411fce5d8afe7e8386db91b1
-        tag: v7.0.38
+        commit: 627487e5292ebc3ae9a0e4139c34dbc2af948eba
+        tag: v7.0.43
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
@@ -80,8 +82,10 @@ modules:
         path: moe.karaokes.mugen.desktop
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/2.9.0/sentry-cli-Linux-x86_64
-        sha256: 8d24e65b07eee362cd8e8b80a98b6029c66950c01cc58b4345f235fae2e243a4
+          https://downloads.sentry-cdn.com/sentry-cli/2.11.0/sentry-cli-Linux-x86_64
+        sha256: bc8f5f223fa688b3ad963c60a729f02aa8f5b17525de66fb3abf86800977ff6e
+        only-arches: '[x86_64]'
       - type: archive
-        url: https://mugen.karaokes.moe/downloads/dist_linux-7.x.tar.gz
-        sha256: f82cda8d37fc991d67f938aa413eafbf2c6ea29ac9663690cdbac7f58005e55b
+        url: https://mugen.karaokes.moe/downloads/dist_linux-x64-7.x.tar.gz
+        sha256: 794c1f503265a7a086bba8b5465659b586bb9b70c55b130dba854dfa0af0e11a
+        only-arches: '[x86_64]'
