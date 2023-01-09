@@ -87,9 +87,9 @@ modules:
       - type: file
         url: >-
           https://downloads.sentry-cdn.com/sentry-cli/2.11.0/sentry-cli-Linux-x86_64
-        sha256: ''
+        sha256: bc8f5f223fa688b3ad963c60a729f02aa8f5b17525de66fb3abf86800977ff6e
         only-arches: '[x86_64]'
       - type: archive
         url: https://mugen.karaokes.moe/downloads/dist_linux-x64-7.x.tar.gz
-        sha256: ''
+        sha256: 794c1f503265a7a086bba8b5465659b586bb9b70c55b130dba854dfa0af0e11a
         only-arches: '[x86_64]'
