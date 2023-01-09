@@ -68,7 +68,7 @@ modules:
         /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
-        url: https://gitlab.com/karaokemugen/karaokemugen-app
+        url: https://gitlab.com/karaokemugen/code/karaokemugen-app
         commit: 085cba1edd38d33625632e6c69a967204a460829
         tag: v7.0.46
       - generated-sources.json
