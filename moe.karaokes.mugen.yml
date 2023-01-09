@@ -32,7 +32,9 @@ modules:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
         npm_config_nodedir: /usr/lib/sdk/node16
     build-commands:
-      - install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print $1'}) /app/bin/sentry-cli
+      - >-
+        install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
+        $1'}) /app/bin/sentry-cli
       - >-
         HOME=$PWD yarn config --offline set yarn-offline-mirror
         $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
@@ -49,7 +51,9 @@ modules:
       - install -d /app/km/app/
       - mv bin/x64 bin/x86_64
       - install -d /app/km/app/bin
-      - cp -r bin/$(gcc --print-multiarch | awk -F- {'print $1'})/* /app/km/app/bin/
+      - >-
+        cp -r bin/$(gcc --print-multiarch | awk -F- {'print $1'})/*
+        /app/km/app/bin/
       - install -Dm755 stub_sandbox /app/km/chrome-sandbox
       - install -Dm755 km-wrapper /app/bin/km-wrapper
       - install -d /app/share/applications
@@ -64,9 +68,9 @@ modules:
         /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
-        url: https://gitlab.com/karaokemugen/karaokemugen-app
-        commit: 627487e5292ebc3ae9a0e4139c34dbc2af948eba
-        tag: v7.0.43
+        url: https://gitlab.com/karaokemugen/code/karaokemugen-app
+        commit: 085cba1edd38d33625632e6c69a967204a460829
+        tag: v7.0.46
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
