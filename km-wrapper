@@ -14,7 +14,7 @@ then
 	WAYLAND="--ozone-platform=wayland"
 	if [ "$XDG_CURRENT_DESKTOP" == "GNOME" ]
     then
-        WAYLAND+="--enable-features=WaylandWindowDecorations"
+        WAYLAND+=" --enable-features=WaylandWindowDecorations"
     fi
 fi
 
