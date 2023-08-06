@@ -12,6 +12,10 @@ WAYLAND=""
 if [ "$XDG_SESSION_TYPE" == "wayland" ]
 then
 	WAYLAND="--ozone-platform=wayland"
+	if [ "$XDG_CURRENT_DESKTOP" == "GNOME" ]
+    then
+        WAYLAND+="--enable-features=WaylandWindowDecorations"
+    fi
 fi
 
 zypak-wrapper "/app/km/karaokemugen" $WAYLAND "$@"
