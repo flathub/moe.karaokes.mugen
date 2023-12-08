@@ -31,6 +31,16 @@ cleanup:
   - '*.la'
   - '*.a'
 modules:
+  - name: parse-yapp
+    buildsystem: simple
+    build-commands:
+      - perl Makefile.PL INSTALL_BASE=/app
+      - make
+      - make install
+    sources:
+      - type: archive
+        url: https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
+        sha256: 3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5  
   - name: libXmu
     buildsystem: autotools
     sources:
@@ -163,8 +173,8 @@ modules:
         url: https://github.com/ccxvii/mujs.git
         mirror-urls:
           - http://git.ghostscript.com/mujs.git
-        tag: 1.3.3
-        commit: 57e3f01d5f29c5823be725d96284488edf5f8ae1
+        tag: 1.3.4
+        commit: a76d157bdaa9aec8de5ea5a362eed2f59139152d
         x-checker-data:
           type: git
           url: https://api.github.com/repos/ccxvii/mujs/tags
@@ -180,8 +190,8 @@ modules:
         url: https://github.com/FFmpeg/nv-codec-headers.git
         mirror-urls:
           - https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
-        tag: n12.0.16.0
-        commit: c5e4af74850a616c42d39ed45b9b8568b71bf8bf
+        tag: n12.1.14.0
+        commit: 1889e62e2d35ff7aa9baca2bceb14f053785e6f1
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]+)$
@@ -191,12 +201,14 @@ modules:
       - /lib/pkgconfig
       - /share/man
     config-opts:
-      - '--disable-cli'
-      - '--enable-shared'
+      - --disable-cli
+      - --enable-shared
     sources:
       - type: git
         url: https://code.videolan.org/videolan/x264.git
-        commit: a8b68ebfaa68621b5ac8907610d3335971839d52
+        commit: c1c9931dc87289b8aeba78150467f17bdb97d019
+        # Every commit to the master branch is considered a release
+        # https://code.videolan.org/videolan/x264/-/issues/35
         x-checker-data:
           type: json
           url: https://code.videolan.org/api/v4/projects/536/repository/commits
@@ -309,8 +321,8 @@ modules:
         url: https://github.com/FFmpeg/FFmpeg.git
         mirror-urls:
           - https://git.ffmpeg.org/ffmpeg.git
-        commit: ea3d24bbe3c58b171e55fe2151fc7ffaca3ab3d2
-        tag: n6.0
+        commit: d4ff0020b40b524a490cf62eccbd3a318f4c0e58
+        tag: n6.1        
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]{3,7})$
@@ -337,16 +349,16 @@ modules:
     sources:
       - type: git
         url: https://github.com/vapoursynth/vapoursynth.git
-        tag: R63
-        commit: f7f4e42193b25edaf35042795b39c80173e1b55e
+        tag: R65
+        commit: 3157049549a0940359b37004aeeeebd8f1db665e
         x-checker-data:
           type: git
           tag-pattern: ^R([\d.]+)$
   - name: libplacebo
     buildsystem: meson
     config-opts:
-      - '-Dvulkan=enabled'
-      - '-Dshaderc=enabled'
+      - -Dvulkan=enabled
+      - -Dshaderc=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -355,18 +367,21 @@ modules:
         url: https://code.videolan.org/videolan/libplacebo.git
         mirror-urls:
           - https://github.com/haasn/libplacebo.git
-        tag: v5.264.1
-        commit: ed29e541a55acf28022738440b2a925386292551
+        tag: v6.338.1
+        commit: 2805a0d01c029084ab36bf5d0e3c8742012a0b27
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
     modules:
       - name: shaderc
         buildsystem: cmake-ninja
         builddir: true
         config-opts:
-          - '-DSHADERC_SKIP_COPYRIGHT_CHECK=ON'
-          - '-DSHADERC_SKIP_EXAMPLES=ON'
-          - '-DSHADERC_SKIP_TESTS=ON'
-          - '-DSPIRV_SKIP_EXECUTABLES=ON'
-          - '-DENABLE_GLSLANG_BINARIES=OFF'
+          - -DSHADERC_SKIP_COPYRIGHT_CHECK=ON
+          - -DSHADERC_SKIP_EXAMPLES=ON
+          - -DSHADERC_SKIP_TESTS=ON
+          - -DSPIRV_SKIP_EXECUTABLES=ON
+          - -DENABLE_GLSLANG_BINARIES=OFF
         cleanup:
           - /bin
           - /include
@@ -375,8 +390,11 @@ modules:
         sources:
           - type: git
             url: https://github.com/google/shaderc.git
-            tag: v2023.4
-            commit: 45b735dfddefe26a99b77e5a74e30d860713ac64
+            tag: v2023.7
+            commit: 3882b16417077aa8eaa7b5775920e7ba4b8a224d
+            x-checker-data:
+              type: git
+              tag-pattern: ^v(\d{4}\.\d{1,2})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Tools.git
             tag: v2023.2
@@ -390,14 +408,17 @@ modules:
             tag: sdk-1.3.250.1
             commit: 268a061764ee69f09a477a695bf6a11ffe311b8d
             dest: third_party/spirv-headers
-            x-checker-data:
-              type: git
-              tag-pattern: ^sdk-([\d.]+)$
+            #x-checker-data:
+            #  type: git
+            #  tag-pattern: ^sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 12.2.0
-            commit: d1517d64cfca91f573af1bf7341dc3a5113349c0
+            tag: 13.1.1
+            commit: 36d08c0d940cf307a23928299ef52c7970d8cee6
             dest: third_party/glslang
+            x-checker-data:
+              type: git
+              tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
   - name: mpv
     buildsystem: meson
     config-opts:
@@ -422,8 +443,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mpv-player/mpv.git
-        tag: v0.35.1
-        commit: 140ec21c89d671d392877a7f3b91d67e7d7b9239
+        tag: v0.37.0
+        commit: 818ce7c51a6b9179307950e919983e0909942098
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -450,284 +471,303 @@ modules:
       - pip3 install --prefix=/app python_dateutil*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl
         sha256: 961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9
         x-checker-data:
           type: pypi
           name: python_dateutil
           packagetype: bdist_wheel
+
   - name: urllib3
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app urllib3*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/c5/05/c214b32d21c0b465506f95c4f28ccbcba15022e000b043b72b3df7728471/urllib3-1.26.16-py2.py3-none-any.whl
-        sha256: 8d36afa7616d8ab714608411b4a3b13e58f463aee519024578e062e141dce20f
+        url: https://files.pythonhosted.org/packages/b0/53/aa91e163dcfd1e5b82d8a890ecf13314e3e149c05270cc644581f77f17fd/urllib3-1.26.18-py2.py3-none-any.whl
+        sha256: 34b97092d7e0a3a8cf7cd10e386f401b3737364026c45e622aa02903dffe0f07
         x-checker-data:
-          versions:
-            '>=': 1.21.1
-            <: '1.27'
+          # Requests doesn't work with > 1.26.x for now
+          # https://github.com/flathub/io.mpv.Mpv/pull/190#issuecomment-1523855709
+          versions: {'>=': 1.21.1, <: '1.27'}
           type: pypi
           name: urllib3
           packagetype: bdist_wheel
+
   - name: soupsieve
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app soupsieve*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/49/37/673d6490efc51ec46d198c75903d99de59baffdd47aea3d071b80a9e4e89/soupsieve-2.4.1-py3-none-any.whl
-        sha256: 1c1bfee6819544a3447586c889157365a27e10d88cde3ad3da0cf0ddf646feb8
+        url: https://files.pythonhosted.org/packages/4c/f3/038b302fdfbe3be7da016777069f26ceefe11a681055ea1f7817546508e3/soupsieve-2.5-py3-none-any.whl
+        sha256: eaa337ff55a1579b6549dc679565eac1e3d000563bcb1c8ab0d0fefbc0c2cdc7
         x-checker-data:
           type: pypi
           name: soupsieve
           packagetype: bdist_wheel
+
   - name: rebulk
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app rebulk-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/84/4d/df073d593f7e7e4a5a7e19148b2e9b4ae63b4ddcbb863f1e7bb2b6f19c62/rebulk-3.2.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/84/4d/df073d593f7e7e4a5a7e19148b2e9b4ae63b4ddcbb863f1e7bb2b6f19c62/rebulk-3.2.0-py3-none-any.whl
         sha256: 6bc31ae4b37200623c5827d2f539f9ec3e52b50431322dad8154642a39b0a53e
         x-checker-data:
           type: pypi
           name: rebulk
           packagetype: bdist_wheel
+
   - name: pbr
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app pbr-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/01/06/4ab11bf70db5a60689fc521b636849c8593eb67a2c6bdf73a16c72d16a12/pbr-5.11.1-py2.py3-none-any.whl
-        sha256: 567f09558bae2b3ab53cb3c1e2e33e726ff3338e7bae3db5dc954b3a44eef12b
+        url: https://files.pythonhosted.org/packages/64/dd/171c9fb653591cf265bcc89c436eec75c9bde3dec921cc236fa71e5698df/pbr-6.0.0-py2.py3-none-any.whl
+        sha256: 4a7317d5e3b17a3dccb6a8cfe67dab65b20551404c52c8ed41279fa4f0cb4cda
         x-checker-data:
           type: pypi
           name: pbr
           packagetype: bdist_wheel
+
   - name: idna
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app idna-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/fc/34/3030de6f1370931b9dbb4dad48f6ab1015ab1d32447850b9fc94e60097be/idna-3.4-py3-none-any.whl
-        sha256: 90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2
+        url: https://files.pythonhosted.org/packages/c2/e7/a82b05cf63a603df6e68d59ae6a68bf5064484a0718ea5033660af4b54a9/idna-3.6-py3-none-any.whl
+        sha256: c05567e9c24a6b9faaa835c4821bad0590fbb9d5779e7caa6e1cc4978e7eb24f
         x-checker-data:
           type: pypi
           name: idna
           packagetype: bdist_wheel
+
   - name: decorator
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app decorator-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/d5/50/83c593b07763e1161326b3b8c6686f0f4b0f24d5526546bee538c89837d6/decorator-5.1.1-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/d5/50/83c593b07763e1161326b3b8c6686f0f4b0f24d5526546bee538c89837d6/decorator-5.1.1-py3-none-any.whl
         sha256: b8c3f85900b9dc423225913c5aace94729fe1fa9763b38939a95226f02d37186
         x-checker-data:
           type: pypi
           name: decorator
           packagetype: bdist_wheel
+
   - name: charset_normalizer
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app charset_normalizer-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/ef/81/14b3b8f01ddaddad6cdec97f2f599aa2fa466bd5ee9af99b08b7713ccd29/charset_normalizer-3.1.0-py3-none-any.whl
-        sha256: 3d9098b479e78c85080c98e1e35ff40b4a31d8953102bb0fd7d1b6f8a2111a3d
+        url: https://files.pythonhosted.org/packages/28/76/e6222113b83e3622caa4bb41032d0b1bf785250607392e1b778aca0b8a7d/charset_normalizer-3.3.2-py3-none-any.whl
+        sha256: 3e4d1f6587322d2788836a99c69062fbb091331ec940e02d12d179c1d53e25fc
+        x-checker-data:
+          type: pypi
+          name: charset_normalizer
+          packagetype: bdist_wheel
+
   - name: certifi
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app certifi-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/9d/19/59961b522e6757f0c9097e4493fa906031b95b3ebe9360b2c3083561a6b4/certifi-2023.5.7-py3-none-any.whl
-        sha256: c6c2e98f5c7869efca1f8916fed228dd91539f9f1b444c314c06eef02980c716
+        url: https://files.pythonhosted.org/packages/64/62/428ef076be88fa93716b576e4a01f919d25968913e817077a386fcbe4f42/certifi-2023.11.17-py3-none-any.whl
+        sha256: e036ab49d5b79556f99cfc2d9320b34cfbe5be05c5871b51de9329f0603b0474
+        x-checker-data:
+          type: pypi
+          name: certifi
+          packagetype: bdist_wheel
+
   - name: stevedore
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app stevedore-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/4b/68/e739fd061b0aba464bef8e8be48428b2aabbfb3f2f8f2f8ca257363ee6b2/stevedore-5.1.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/4b/68/e739fd061b0aba464bef8e8be48428b2aabbfb3f2f8f2f8ca257363ee6b2/stevedore-5.1.0-py3-none-any.whl
         sha256: 8cc040628f3cea5d7128f2e76cf486b2251a4e543c7b938f58d9a377f6694a2d
         x-checker-data:
           type: pypi
           name: stevedore
           packagetype: bdist_wheel
+
   - name: requests
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app requests-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl
         sha256: 58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f
         x-checker-data:
           type: pypi
           name: requests
           packagetype: bdist_wheel
+
   - name: rarfile
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app rarfile-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/95/f4/c92fab227c7457e3b76a4096ccb655ded9deac869849cb03afbe55dfdc1e/rarfile-4.0-py3-none-any.whl
-        sha256: 1094869119012f95c31a6f22cc3a9edbdca61861b805241116adbe2d737b68f8
+        url: https://files.pythonhosted.org/packages/75/34/f06b7de74bcea328d8d7a950aad099c1100578cc3960ffc5a00d30ab511c/rarfile-4.1-py3-none-any.whl
+        sha256: 17d7554c93c776ceae677e9d927051267d4c5eba38bf64b9cc89a415d9a5f901
         x-checker-data:
           type: pypi
           name: rarfile
           packagetype: bdist_wheel
+
   - name: pytz
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app pytz-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/7f/99/ad6bd37e748257dd70d6f85d916cafe79c0b0f5e2e95b11f7fbc82bf3110/pytz-2023.3-py2.py3-none-any.whl
-        sha256: a151b3abb88eda1d4e34a9814df37de2a80e301e68ba0fd856fb9b46bfbbbffb
+        url: https://files.pythonhosted.org/packages/32/4d/aaf7eff5deb402fd9a24a1449a8119f00d74ae9c2efa79f8ef9994261fc2/pytz-2023.3.post1-py2.py3-none-any.whl
+        sha256: ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7
         x-checker-data:
           type: pypi
           name: pytz
           packagetype: bdist_wheel
+
   - name: pysrt
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: >-
-          https://files.pythonhosted.org/packages/31/1a/0d858da1c6622dcf16011235a2639b0a01a49cecf812f8ab03308ab4de37/pysrt-1.1.2.tar.gz
+        url: https://files.pythonhosted.org/packages/31/1a/0d858da1c6622dcf16011235a2639b0a01a49cecf812f8ab03308ab4de37/pysrt-1.1.2.tar.gz
         sha256: b4f844ba33e4e7743e9db746492f3a193dc0bc112b153914698e7c1cdeb9b0b9
         x-checker-data:
           type: pypi
           name: pysrt
+
   - name: babelfish
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app babelfish-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/ce/2c/f7951f771261da6740af14fd9698064616aa040780cd8a03243fc43165c7/babelfish-0.6.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/ce/2c/f7951f771261da6740af14fd9698064616aa040780cd8a03243fc43165c7/babelfish-0.6.0-py3-none-any.whl
         sha256: 268f1c6279f2a04a66837972e8a9f3dcc68e16f1201eec57d2a4b828a8b41b11
         x-checker-data:
           type: pypi
           name: babelfish
           packagetype: bdist_wheel
+
   - name: guessit
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app guessit-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/db/5e/eec6416047845a745b1d2aee181244b380e59158e29d814021d2e511b267/guessit-3.7.1-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/db/5e/eec6416047845a745b1d2aee181244b380e59158e29d814021d2e511b267/guessit-3.7.1-py3-none-any.whl
         sha256: c3be280ee8ec581a45ca6a654a92e317bf89567fdc55e7167452226f4f5b8b38
         x-checker-data:
           type: pypi
           name: guessit
           packagetype: bdist_wheel
+
   - name: enzyme
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: >-
-          https://files.pythonhosted.org/packages/dd/99/e4eee822d9390ebf1f63a7a67e8351c09fb7cd75262e5bb1a5256898def9/enzyme-0.4.1.tar.gz
+        url: https://files.pythonhosted.org/packages/dd/99/e4eee822d9390ebf1f63a7a67e8351c09fb7cd75262e5bb1a5256898def9/enzyme-0.4.1.tar.gz
         sha256: f2167fa97c24d1103a94d4bf4eb20f00ca76c38a37499821049253b2059c62bb
         x-checker-data:
           type: pypi
           name: enzyme
+
+  - name: typing-extensions
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app typing*.whl
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/24/21/7d397a4b7934ff4028987914ac1044d3b7d52712f30e2ac7a2ae5bc86dd0/typing_extensions-4.8.0-py3-none-any.whl
+        sha256: 8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0
+        x-checker-data:
+          type: pypi
+          name: typing-extensions
+          packagetype: bdist_wheel
+
   - name: dogpile
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app dogpile*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/37/b3/d95ba629fa9d52cc2ea86298d930976f1e6a560d20fec64527342e61e29e/dogpile.cache-1.2.1-py3-none-any.whl
-        sha256: fa9c9c07640bdb66c5f5574e308123119b96c9a95c6856151d3fd2c91b4fb06a
+        url: https://files.pythonhosted.org/packages/84/53/48110e2526166d8411c59ea858f38add623b088a23c356b8e5477e364a81/dogpile.cache-1.2.2-py3-none-any.whl
+        sha256: f6c2c6ff3a3dc7dc0d662b3f30983f684502fd7a91a45be680879d7d8cc177d7
+        x-checker-data:
+          type: pypi
+          name: dogpile.cache
+          packagetype: bdist_wheel
+
   - name: click
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app click-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/f9/a6/dc327484918f1656cc9fcebebe77efcfc0ef0d447fa925a8760ee55abe0e/click-8.1.4-py3-none-any.whl
-        sha256: 2739815aaa5d2c986a88f1e9230c55e17f0caad3d958a5e13ad0797c166db9e3
+        url: https://files.pythonhosted.org/packages/00/2e/d53fa4befbf2cfa713304affc7ca780ce4fc1fd8710527771b58311a3229/click-8.1.7-py3-none-any.whl
+        sha256: ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28
+        x-checker-data:
+          type: pypi
+          name: click
+          packagetype: bdist_wheel
+
   - name: chardet
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app chardet-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/38/6f/f5fbc992a329ee4e0f288c1fe0e2ad9485ed064cac731ed2fe47dcc38cbf/chardet-5.2.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/38/6f/f5fbc992a329ee4e0f288c1fe0e2ad9485ed064cac731ed2fe47dcc38cbf/chardet-5.2.0-py3-none-any.whl
         sha256: e1cf59446890a00105fe7b7912492ea04b6e6f06d4b742b2c788469e34c82970
         x-checker-data:
           type: pypi
           name: chardet
           packagetype: bdist_wheel
+
   - name: beautifulsoup4
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app beautifulsoup4-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/57/f4/a69c20ee4f660081a7dedb1ac57f29be9378e04edfcb90c526b923d4bebc/beautifulsoup4-4.12.2-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/57/f4/a69c20ee4f660081a7dedb1ac57f29be9378e04edfcb90c526b923d4bebc/beautifulsoup4-4.12.2-py3-none-any.whl
         sha256: bd2520ca0d9d7d12694a53d44ac482d181b4ec1888909b035a3dbf40d0f57d4a
         x-checker-data:
           type: pypi
           name: beautifulsoup4
           packagetype: bdist_wheel
+
   - name: appdirs
     buildsystem: simple
     build-commands:
       - pip3 install --prefix=/app appdirs-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
         sha256: a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128
         x-checker-data:
           type: pypi
           name: appdirs
           packagetype: bdist_wheel
-  - name: subliminal
-    buildsystem: simple
-    build-commands:
-      - pip3 install --prefix=/app subliminal-*.whl
-    sources:
-      - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/d6/f6/d523ddbb9304fa3597101903c0004bdba50c495a1e0d355cdd763df6f2d8/subliminal-2.1.0-py3-none-any.whl
-        sha256: c7751e7af83e8e80c924c2c596318d9e2535f249784a41840eaee5f4a4f49d79
-        x-checker-data:
-          type: pypi
-          name: subliminal
-          packagetype: bdist_wheel
+
+#/ ### Python modules for mpv scripts
+
+  # This mpv plugin prevents screen blanking in GNOME (wayland) while playing media.
   - name: mpv_inhibit_gnome
     buildsystem: simple
     build-commands:
@@ -741,67 +781,6 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-  - name: karaokemugen
-    buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/node18/bin
-      env:
-        XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
-        npm_config_nodedir: /usr/lib/sdk/node16
-    build-commands:
-      - >-
-        install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
-        $1'}) /app/bin/sentry-cli
-      - >-
-        HOME=$PWD yarn config --offline set yarn-offline-mirror
-        $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
-      - SENTRYCLI_USE_LOCAL=1 yarn --offline
-      - yarn --offline build
-      - yarn --offline installkmfrontend
-      - NODE_OPTIONS=--openssl-legacy-provider yarn --offline buildkmfrontend
-      - git rev-parse HEAD | head -c 8 > assets/sha.txt
-      - >-
-        . flatpak-node/electron-builder-arch-args.sh; yarn run electron-builder
-        --dir -c.compression=store -c.mac.identity=null
-        $ELECTRON_BUILDER_ARCH_ARGS
-      - cp -r packages/linux*unpacked/* /app/km/
-      - install -d /app/km/app/
-      - install -d /app/km/app/bin
-      - install -Dm755 stub_sandbox /app/km/chrome-sandbox
-      - install -Dm755 km-wrapper /app/bin/km-wrapper
-      - install -d /app/share/applications
-      - >-
-        install -Dm644 moe.karaokes.mugen.desktop
-        "/app/share/applications/${FLATPAK_ID}.desktop"
-      - >-
-        install -Dm644 build/icon512.png
-        "/app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
-      - >-
-        install -Dm644 moe.karaokes.mugen.metainfo.xml
-        /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
-    sources:
-      - type: git
-        url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: 5b29abf7eda96a206f2abe4b62db4b33b5691d9f
-        tag: v7.1.27
-      - generated-sources.json
-      - type: script
-        dest-filename: stub_sandbox
-        commands:
-          - |
-            echo Stub sandbox ignoring command: $@
-            exit 1
-      - type: file
-        path: km-wrapper
-      - type: file
-        path: moe.karaokes.mugen.metainfo.xml
-      - type: file
-        path: moe.karaokes.mugen.desktop
-      - type: file
-        url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/2.20.5/sentry-cli-Linux-x86_64
-        sha256: 7f949b842cc5c48e6fe291469f972df915c68db53d0ff0b51cf8d30dd90cd719
-        only-arches: '[x86_64]'
   - name: patch
     buildsystem: simple
     build-options:
@@ -833,5 +812,78 @@ modules:
     sources:
       - type: git
         url: https://git.postgresql.org/git/postgresql.git
-        commit: b664e3552b800b480e2b4fadd847f8b312e00642
-        tag: REL_13_9
+        commit: 3edc6580c0e27fb8f13322efd255a88d20dda6c2
+        tag: REL_16_1
+  - name: karaokemugen
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/node18/bin
+      env:
+        XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
+        npm_config_nodedir: /usr/lib/sdk/node16
+    build-commands:
+      - >-
+        install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
+        $1'}) /app/bin/sentry-cli
+      - install -d v8.14.5/
+      - cp libvips-8.14.5-linux-x64.tar.br v8.14.5/libvips-8.14.5-linux-x64.tar.br
+      - >-
+        HOME=$PWD yarn config --offline set yarn-offline-mirror
+        $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
+      - SENTRYCLI_USE_LOCAL=1 npm_config_sharp_libvips_local_prebuilds=$PWD npm_config_sharp_local_prebuilds=$PWD yarn --offline
+      - yarn --offline build
+      - yarn --offline installkmfrontend
+      - NODE_OPTIONS=--openssl-legacy-provider yarn --offline buildkmfrontend
+      - git rev-parse HEAD | head -c 8 > assets/sha.txt
+      - >-
+        . flatpak-node/electron-builder-arch-args.sh; yarn run electron-builder
+        --dir -c.compression=store -c.mac.identity=null
+        $ELECTRON_BUILDER_ARCH_ARGS
+      - cp -r packages/linux*unpacked/* /app/km/
+      - install -d /app/km/app/
+      - install -d /app/km/app/bin
+      - install -Dm755 stub_sandbox /app/km/chrome-sandbox
+      - install -Dm755 km-wrapper /app/bin/km-wrapper
+      - install -d /app/share/applications
+      - >-
+        install -Dm644 moe.karaokes.mugen.desktop
+        "/app/share/applications/${FLATPAK_ID}.desktop"
+      - >-
+        install -Dm644 build/icon512.png
+        "/app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
+      - >-
+        install -Dm644 moe.karaokes.mugen.metainfo.xml
+        /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+    sources:
+      - type: git
+        url: https://gitlab.com/karaokemugen/code/karaokemugen-app
+        commit: 3c5616cde7a34b2ec7ce0e2b9eb9bc66653305e5
+        tag: v7.1.39
+      - generated-sources.json
+      - type: script
+        dest-filename: stub_sandbox
+        commands:
+          - |
+            echo Stub sandbox ignoring command: $@
+            exit 1
+      - type: file
+        path: km-wrapper
+      - type: file
+        path: moe.karaokes.mugen.metainfo.xml
+      - type: file
+        path: moe.karaokes.mugen.desktop
+      - type: file
+        url: >-
+          https://downloads.sentry-cdn.com/sentry-cli/2.22.3/sentry-cli-Linux-x86_64
+        sha256: bcc68cd1de631cbeee481d42391c6646e5fc974293fd3c08fb9e6425077138c9
+        only-arches: '[x86_64]'  
+      - type: file
+        url: >-
+          https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
+        sha256: 11959c03864960f812d861bf7291020540a49fafd2c746b7a3228d9f2bd2200d
+        only-arches: '[x86_64]'
+      - type: file
+        url: >-
+          https://github.com/lovell/sharp/releases/download/v0.32.6/sharp-v0.32.6-napi-v7-linux-x64.tar.gz
+        sha256: 994679b5089fee0608f94f1b5f6f75a0dcc79a64f3a929d147503e8d0e91dd2f
+        only-arches: '[x86_64]'
