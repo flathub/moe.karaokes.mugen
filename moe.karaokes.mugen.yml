@@ -855,8 +855,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: 205c7618a1ebfc18669dfe6dd9c36d6dd8ae0048
-        tag: v7.1.41
+        commit: ba8c1a6a1ac4c915b7ac966f89f3a7f420293e59
+        tag: v7.1.50
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
@@ -872,8 +872,8 @@ modules:
         path: moe.karaokes.mugen.desktop
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/2.23.0/sentry-cli-Linux-x86_64
-        sha256: 23d3fdb2e797a1f49917b13cd040874f6189aff3f24d56d3fb81d74c1f368372
+          https://downloads.sentry-cdn.com/sentry-cli/2.26.0/sentry-cli-Linux-x86_64
+        sha256: 71dd4266b7b3e1b58bdf70742716107d9eaf0b194d898819ebe0316b6f7f61e5
         only-arches: '[x86_64]'
       - type: file
         url: >-
