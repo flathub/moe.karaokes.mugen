@@ -9,24 +9,24 @@ sdk-extensions:
 command: km-wrapper
 separate-locales: false
 finish-args:
-  - '--filesystem=~/KaraokeMugen:create'
-  - '--filesystem=xdg-run/app/com.discordapp.Discord:create'
-  - '--filesystem=xdg-run/app/com.discordapp.DiscordCanary:create'
-  - '--share=ipc'
-  - '--socket=fallback-x11'
-  - '--socket=pulseaudio'
-  - '--socket=wayland'
-  - '--device=all'
-  - '--own-name=org.mpris.MediaPlayer2.KaraokeMugen.*'
-  - '--talk-name=org.gnome.SessionManager'
-  - '--share=network'
-  - '--system-talk-name=org.freedesktop.UPower'
-  - '--talk-name=com.canonical.AppMenu.Registrar'
-  - '--talk-name=com.canonical.dbusmenu'
-  - '--talk-name=org.freedesktop.Notifications'
-  - '--talk-name=org.kde.StatusNotifierWatcher'
-  - '--env=LC_NUMERIC=C'
-  - '--env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons'
+  - --filesystem=~/KaraokeMugen:create
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
+  - --filesystem=xdg-run/app/com.discordapp.DiscordCanary:create
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --device=all
+  - --own-name=org.mpris.MediaPlayer2.KaraokeMugen.*
+  - --talk-name=org.gnome.SessionManager
+  - --share=network
+  - --system-talk-name=org.freedesktop.UPower
+  - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=com.canonical.dbusmenu
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --env=LC_NUMERIC=C
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 cleanup:
   - '*.la'
   - '*.a'
@@ -92,8 +92,8 @@ modules:
   - name: uchardet
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DBUILD_STATIC=0'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_STATIC=0
     cleanup:
       - /bin
       - /include
@@ -115,7 +115,7 @@ modules:
       - /include
       - /lib/pkgconfig
     config-opts:
-      - '--disable-static'
+      - --disable-static
     sources:
       - type: git
         url: https://github.com/libass/libass.git
@@ -126,7 +126,7 @@ modules:
           tag-pattern: ^(\d\.\d{1,3}\.\d{1,2})$
   - name: zimg
     config-opts:
-      - '--disable-static'
+      - --disable-static
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -202,12 +202,12 @@ modules:
       - /lib/pkgconfig
       - /share/man
     config-opts:
-      - '--disable-cli'
-      - '--enable-shared'
+      - --disable-cli
+      - --enable-shared
     sources:
       - type: git
         url: https://code.videolan.org/videolan/x264.git
-        commit: c1c9931dc87289b8aeba78150467f17bdb97d019
+        commit: de1bea534ff74195d1205cb5d50dab815bb7bc23
         x-checker-data:
           type: json
           url: https://code.videolan.org/api/v4/projects/536/repository/commits
@@ -218,8 +218,8 @@ modules:
     buildsystem: cmake
     subdir: source
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DBUILD_STATIC=0'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_STATIC=0
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -235,11 +235,11 @@ modules:
   - name: libmysofa
     buildsystem: cmake
     config-opts:
-      - '-DBUILD_TESTS=OFF'
+      - -DBUILD_TESTS=OFF
     sources:
       - type: git
-        commit: 3002ea258686ae1129f042644a3c2a87860b7d31
-        tag: v1.3.1
+        commit: 33974839677da7044ef5a70be7ad5550735aae6e
+        tag: v1.3.2
         url: https://github.com/hoene/libmysofa.git
         x-checker-data:
           type: git
@@ -247,7 +247,7 @@ modules:
   - name: libbs2b
     buildsystem: autotools
     config-opts:
-      - '--disable-static'
+      - --disable-static
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -270,13 +270,13 @@ modules:
   - name: libjxl
     buildsystem: cmake
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DBUILD_TESTING=OFF'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
     sources:
       - type: git
         url: https://github.com/libjxl/libjxl.git
-        tag: v0.8.2
-        commit: 954b460768c08a147abf47689ad69b0e7beff65e
+        tag: v0.10.2
+        commit: e1489592a770b989303b0edc5cc1dc447bbe0515
         disable-shallow-clone: true
         x-checker-data:
           type: git
@@ -287,29 +287,29 @@ modules:
       - /lib/pkgconfig
       - /share/ffmpeg/examples
     config-opts:
-      - '--disable-debug'
-      - '--disable-doc'
-      - '--disable-static'
-      - '--enable-encoder=png'
-      - '--enable-gnutls'
-      - '--enable-gpl'
-      - '--enable-shared'
-      - '--enable-version3'
-      - '--enable-libaom'
-      - '--enable-libass'
-      - '--enable-libbs2b'
-      - '--enable-libdav1d'
-      - '--enable-libfreetype'
-      - '--enable-libmp3lame'
-      - '--enable-libopus'
-      - '--enable-libjxl'
-      - '--enable-libmysofa'
-      - '--enable-libtheora'
-      - '--enable-libvorbis'
-      - '--enable-libvpx'
-      - '--enable-libx264'
-      - '--enable-libx265'
-      - '--enable-libwebp'
+      - --disable-debug
+      - --disable-doc
+      - --disable-static
+      - --enable-encoder=png
+      - --enable-gnutls
+      - --enable-gpl
+      - --enable-shared
+      - --enable-version3
+      - --enable-libaom
+      - --enable-libass
+      - --enable-libbs2b
+      - --enable-libdav1d
+      - --enable-libfreetype
+      - --enable-libmp3lame
+      - --enable-libopus
+      - --enable-libjxl
+      - --enable-libmysofa
+      - --enable-libtheora
+      - --enable-libvorbis
+      - --enable-libvpx
+      - --enable-libx264
+      - --enable-libx265
+      - --enable-libwebp
     post-install:
       - install -d /app/km
       - install -d /app/km/app/
@@ -320,8 +320,8 @@ modules:
         url: https://github.com/FFmpeg/FFmpeg.git
         mirror-urls:
           - https://git.ffmpeg.org/ffmpeg.git
-        commit: d4ff0020b40b524a490cf62eccbd3a318f4c0e58
-        tag: n6.1
+        commit: e38092ef9395d7049f871ef4d5411eb410e283e0
+        tag: n6.1.1
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]{3,7})$
@@ -343,21 +343,21 @@ modules:
           version-query: .[0].name
   - name: vapoursynth
     config-opts:
-      - '--disable-static'
-      - '--with-python_prefix=/app'
+      - --disable-static
+      - --with-python_prefix=/app
     sources:
       - type: git
         url: https://github.com/vapoursynth/vapoursynth.git
-        tag: R65
-        commit: 3157049549a0940359b37004aeeeebd8f1db665e
+        tag: R66
+        commit: fe6c67cdb17f41160c79434f0240077f74de9fd1
         x-checker-data:
           type: git
           tag-pattern: ^R([\d.]+)$
   - name: libplacebo
     buildsystem: meson
     config-opts:
-      - '-Dvulkan=enabled'
-      - '-Dshaderc=enabled'
+      - -Dvulkan=enabled
+      - -Dshaderc=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -366,8 +366,8 @@ modules:
         url: https://code.videolan.org/videolan/libplacebo.git
         mirror-urls:
           - https://github.com/haasn/libplacebo.git
-        tag: v6.338.1
-        commit: 2805a0d01c029084ab36bf5d0e3c8742012a0b27
+        tag: v6.338.2
+        commit: 64c1954570f1cd57f8570a57e51fb0249b57bb90
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -376,11 +376,11 @@ modules:
         buildsystem: cmake-ninja
         builddir: true
         config-opts:
-          - '-DSHADERC_SKIP_COPYRIGHT_CHECK=ON'
-          - '-DSHADERC_SKIP_EXAMPLES=ON'
-          - '-DSHADERC_SKIP_TESTS=ON'
-          - '-DSPIRV_SKIP_EXECUTABLES=ON'
-          - '-DENABLE_GLSLANG_BINARIES=OFF'
+          - -DSHADERC_SKIP_COPYRIGHT_CHECK=ON
+          - -DSHADERC_SKIP_EXAMPLES=ON
+          - -DSHADERC_SKIP_TESTS=ON
+          - -DSPIRV_SKIP_EXECUTABLES=ON
+          - -DENABLE_GLSLANG_BINARIES=OFF
         cleanup:
           - /bin
           - /include
@@ -389,8 +389,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/google/shaderc.git
-            tag: v2023.7
-            commit: 3882b16417077aa8eaa7b5775920e7ba4b8a224d
+            tag: v2024.0
+            commit: d792558a8902cb39b1c237243cc4edab226513a5
             x-checker-data:
               type: git
               tag-pattern: ^v(\d{4}\.\d{1,2})$
@@ -409,8 +409,8 @@ modules:
             dest: third_party/spirv-headers
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 13.1.1
-            commit: 36d08c0d940cf307a23928299ef52c7970d8cee6
+            tag: 14.1.0
+            commit: ee2f5d09eaf8f4e8d0d598bd2172fce290d4ca60
             dest: third_party/glslang
             x-checker-data:
               type: git
@@ -418,16 +418,16 @@ modules:
   - name: mpv
     buildsystem: meson
     config-opts:
-      - '-Dbuild-date=false'
-      - '-Dlibmpv=true'
-      - '-Dmanpage-build=disabled'
-      - '-Dcdda=disabled'
-      - '-Ddvbin=disabled'
-      - '-Ddvdnav=disabled'
-      - '-Dlibarchive=enabled'
-      - '-Dsdl2=enabled'
-      - '-Dshaderc=enabled'
-      - '-Dvulkan=enabled'
+      - -Dbuild-date=false
+      - -Dlibmpv=true
+      - -Dmanpage-build=disabled
+      - -Dcdda=disabled
+      - -Ddvbin=disabled
+      - -Ddvdnav=disabled
+      - -Dlibarchive=enabled
+      - -Dsdl2=enabled
+      - -Dshaderc=enabled
+      - -Dvulkan=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -468,8 +468,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl
-        sha256: 961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9
+          https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+        sha256: a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
         x-checker-data:
           type: pypi
           name: python_dateutil
@@ -575,8 +575,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/64/62/428ef076be88fa93716b576e4a01f919d25968913e817077a386fcbe4f42/certifi-2023.11.17-py3-none-any.whl
-        sha256: e036ab49d5b79556f99cfc2d9320b34cfbe5be05c5871b51de9329f0603b0474
+          https://files.pythonhosted.org/packages/ba/06/a07f096c664aeb9f01624f858c3add0a4e913d6c96257acb4fce61e7de14/certifi-2024.2.2-py3-none-any.whl
+        sha256: dc383c07b76109f368f6106eee2b593b04a011ea4d55f652c6ca24a754d1cdd1
         x-checker-data:
           type: pypi
           name: certifi
@@ -588,8 +588,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/4b/68/e739fd061b0aba464bef8e8be48428b2aabbfb3f2f8f2f8ca257363ee6b2/stevedore-5.1.0-py3-none-any.whl
-        sha256: 8cc040628f3cea5d7128f2e76cf486b2251a4e543c7b938f58d9a377f6694a2d
+          https://files.pythonhosted.org/packages/eb/f1/c7c6205c367c764ee173537f7eaf070bba4dd0fa11bf081813c2f75285a3/stevedore-5.2.0-py3-none-any.whl
+        sha256: 1c15d95766ca0569cad14cb6272d4d31dae66b011a929d7c18219c176ea1b5c9
         x-checker-data:
           type: pypi
           name: stevedore
@@ -627,8 +627,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/32/4d/aaf7eff5deb402fd9a24a1449a8119f00d74ae9c2efa79f8ef9994261fc2/pytz-2023.3.post1-py2.py3-none-any.whl
-        sha256: ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7
+          https://files.pythonhosted.org/packages/9c/3d/a121f284241f08268b21359bd425f7d4825cffc5ac5cd0e1b3d82ffd2b10/pytz-2024.1-py2.py3-none-any.whl
+        sha256: 328171f4e3623139da4983451950b28e95ac706e13f3f2630a879749e7a8b319
         x-checker-data:
           type: pypi
           name: pytz
@@ -665,8 +665,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/db/5e/eec6416047845a745b1d2aee181244b380e59158e29d814021d2e511b267/guessit-3.7.1-py3-none-any.whl
-        sha256: c3be280ee8ec581a45ca6a654a92e317bf89567fdc55e7167452226f4f5b8b38
+          https://files.pythonhosted.org/packages/b8/9b/924a8f9709c3143d4c9a301a88042cbce37e09789378217284b19d4f8132/guessit-3.8.0-py3-none-any.whl
+        sha256: eb5747b1d0fbca926562c1e5894dbc3f6507c35e8c0bd9e38148401cd9579d83
         x-checker-data:
           type: pypi
           name: guessit
@@ -690,8 +690,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/24/21/7d397a4b7934ff4028987914ac1044d3b7d52712f30e2ac7a2ae5bc86dd0/typing_extensions-4.8.0-py3-none-any.whl
-        sha256: 8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0
+          https://files.pythonhosted.org/packages/f9/de/dc04a3ea60b22624b51c703a84bbe0184abcd1d0b9bc8074b5d6b7ab90bb/typing_extensions-4.10.0-py3-none-any.whl
+        sha256: 69b1a937c3a517342112fb4c6df7e72fc39a38e7891a5730ed4985b5214b5475
         x-checker-data:
           type: pypi
           name: typing-extensions
@@ -703,8 +703,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/84/53/48110e2526166d8411c59ea858f38add623b088a23c356b8e5477e364a81/dogpile.cache-1.2.2-py3-none-any.whl
-        sha256: f6c2c6ff3a3dc7dc0d662b3f30983f684502fd7a91a45be680879d7d8cc177d7
+          https://files.pythonhosted.org/packages/62/bb/f487b5490301975d9c88e935043f2b6bc871ad4b90d570ce74c92879b0cb/dogpile.cache-1.3.2-py3-none-any.whl
+        sha256: c59250e23ddb4c03259c315c3b03d18b0658ec4f30ee665b39b91faf6401ef41
         x-checker-data:
           type: pypi
           name: dogpile.cache
@@ -742,8 +742,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/57/f4/a69c20ee4f660081a7dedb1ac57f29be9378e04edfcb90c526b923d4bebc/beautifulsoup4-4.12.2-py3-none-any.whl
-        sha256: bd2520ca0d9d7d12694a53d44ac482d181b4ec1888909b035a3dbf40d0f57d4a
+          https://files.pythonhosted.org/packages/b1/fe/e8c672695b37eecc5cbf43e1d0638d88d66ba3a44c4d321c796f4e59167f/beautifulsoup4-4.12.3-py3-none-any.whl
+        sha256: b80878c9f40111313e55da8ba20bdba06d8fa3969fc68304167741bbf9e082ed
         x-checker-data:
           type: pypi
           name: beautifulsoup4
