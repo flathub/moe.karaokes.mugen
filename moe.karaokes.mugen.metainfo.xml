@@ -18,17 +18,15 @@
 		<p>
       Karaoke Mugen makes hosting karaoke events easy, with a video player (mpv) and web interfaces to manage playlists, but also for your guests/public to request songs to sing!
     </p>
+		<p xml:lang="fr">
+      Karaoke Mugen rend la gestion d'un évènement de karaoké facile, avec un lecteur vidéo (mpv) et des interfaces web pour gérer les playlists, mais aussi pour vos invités/votre public pour qu'ils demandent des chansons à chanter!
+		</p>
 		<p>
 	  It's also perfect for streamers wanting to allow their viewers to interact with them during a karaoke session.
-	</p>
-	</description>
-	<description xml:lang="fr">
-		<p>
-	  Karaoke Mugen rend la gestion d'un évènement de karaoké facile, avec un lecteur vidéo (mpv) et des interfaces web pour gérer les playlists, mais aussi pour vos invités/votre public pour qu'ils demandent des chansons à chanter!
-    </p>
-		<p>
+	        </p>
+		<p xml:lang="fr">
 	  C'est aussi un outil parfait pour les streamers voulant permettre à leurs spectateurs d'intéragir avec eux durant une session de karaoké.
-	</p>
+		</p>
 	</description>
 	<launchable type="desktop-id">moe.karaokes.mugen.desktop</launchable>
 	<screenshots>
@@ -37,6 +35,7 @@
 		</screenshot>
 	</screenshots>
 	<releases>
+		<release version="v7.1.57" date="2024-03-10"/>
 		<release version="v7.1.50" date="2024-02-05"/>
 		<release version="v7.1.41" date="2023-12-11"/>
 		<release version="v7.1.39" date="2023-12-03"/>
