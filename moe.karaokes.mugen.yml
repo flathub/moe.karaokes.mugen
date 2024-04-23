@@ -1,11 +1,11 @@
 app-id: moe.karaokes.mugen
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '22.08'
+base-version: '23.08'
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node18
+  - org.freedesktop.Sdk.Extension.node20
 command: km-wrapper
 separate-locales: false
 finish-args:
@@ -31,6 +31,23 @@ cleanup:
   - '*.la'
   - '*.a'
 modules:
+  - name: ed
+    build-options:
+      no-debuginfo: true
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://ftp.gnu.org/gnu/ed/ed-1.20.1.tar.lz
+        mirror-urls:
+          - https://mirrors.kernel.org/gnu/ed/ed-1.20.1.tar.lz
+          - https://mirrors.ocf.berkeley.edu/gnu/ed/ed-1.20.1.tar.lz
+          - https://ftpmirror.gnu.org/gnu/ed/ed-1.20.1.tar.lz
+        sha256: b1a463b297a141f9876c4b1fcd01477f645cded92168090e9a35db2af4babbca
+        x-checker-data:
+          type: html
+          url: https://ftp.gnu.org/gnu/ed/
+          version-pattern: ed-(\d\.\d+\.?\d*).tar.lz
+          url-template: https://ftp.gnu.org/gnu/ed/ed-$version.tar.lz
   - name: parse-yapp
     buildsystem: simple
     build-commands:
@@ -810,10 +827,10 @@ modules:
   - name: karaokemugen
     buildsystem: simple
     build-options:
-      append-path: /usr/lib/sdk/node18/bin
+      append-path: /usr/lib/sdk/node20/bin
       env:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
-        npm_config_nodedir: /usr/lib/sdk/node16
+        npm_config_nodedir: /usr/lib/sdk/node20
         LIBVIPS_VERSION: 8.14.5
     build-commands:
       - >-
