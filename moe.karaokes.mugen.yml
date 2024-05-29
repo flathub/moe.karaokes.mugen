@@ -831,22 +831,15 @@ modules:
       append-path: /usr/lib/sdk/node20/bin
       env:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
-        npm_config_nodedir: /usr/lib/sdk/node20
-        LIBVIPS_VERSION: ''
+        npm_config_nodedir: /usr/lib/sdk/node20        
     build-commands:
       - >-
         install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
         $1'}) /app/bin/sentry-cli
       - install -d v8.14.5/
       - >-
-        cp libvips-8.14.5-linux-x64.tar.br
-        v8.14.5/libvips-8.14.5-linux-x64.tar.br
-      - >-
         HOME=$PWD yarn config --offline set yarn-offline-mirror
         $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
-      - >-
-        SENTRYCLI_USE_LOCAL=1 npm_config_sharp_libvips_local_prebuilds=$PWD
-        npm_config_sharp_local_prebuilds=$PWD yarn --offline
       - yarn --offline build
       - yarn --offline installkmfrontend
       - NODE_OPTIONS=--openssl-legacy-provider yarn --offline buildkmfrontend
@@ -892,14 +885,4 @@ modules:
         url: >-
           https://downloads.sentry-cdn.com/sentry-cli/2.31.2/sentry-cli-Linux-x86_64
         sha256: a6e82e7c4eac8d4c358bf261badf97f0d2fc7469093082397345cfe99f6caf18
-        only-arches: '[x86_64]'
-      - type: file
-        url: >-
-          https://github.com/lovell/sharp-libvips/releases/download/v/libvips--linux-x64.tar.br
-        sha256: ''
-        only-arches: '[x86_64]'
-      - type: file
-        url: >-
-          https://github.com/lovell/sharp/releases/download/v/sharp-v-napi-v7-linux-x64.tar.gz
-        sha256: ''
         only-arches: '[x86_64]'
