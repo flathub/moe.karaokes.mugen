@@ -831,7 +831,7 @@ modules:
       env:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
         npm_config_nodedir: /usr/lib/sdk/node20
-        LIBVIPS_VERSION: 8.14.5
+        LIBVIPS_VERSION: ''
     build-commands:
       - >-
         install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
@@ -872,8 +872,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: e43b023a0f6283ca2dd65642524c2616ccab604a
-        tag: v7.1.66
+        commit: 3ad789f49cb490b4fba011eb847ebaffd2f35da8
+        tag: v8.0.3
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
@@ -889,16 +889,16 @@ modules:
         path: moe.karaokes.mugen.desktop
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/2.31.0/sentry-cli-Linux-x86_64
-        sha256: baeb5b4ca0a5e500d667087f0b7fbb2865d3b8f01896cfba5144433dbe59bebd
+          https://downloads.sentry-cdn.com/sentry-cli/2.31.2/sentry-cli-Linux-x86_64
+        sha256: a6e82e7c4eac8d4c358bf261badf97f0d2fc7469093082397345cfe99f6caf18
         only-arches: '[x86_64]'
       - type: file
         url: >-
-          https://github.com/lovell/sharp-libvips/releases/download/v8.14.5/libvips-8.14.5-linux-x64.tar.br
-        sha256: 11959c03864960f812d861bf7291020540a49fafd2c746b7a3228d9f2bd2200d
+          https://github.com/lovell/sharp-libvips/releases/download/v/libvips--linux-x64.tar.br
+        sha256: ''
         only-arches: '[x86_64]'
       - type: file
         url: >-
-          https://github.com/lovell/sharp/releases/download/v0.32.6/sharp-v0.32.6-napi-v7-linux-x64.tar.gz
-        sha256: 994679b5089fee0608f94f1b5f6f75a0dcc79a64f3a929d147503e8d0e91dd2f
+          https://github.com/lovell/sharp/releases/download/v/sharp-v-napi-v7-linux-x64.tar.gz
+        sha256: ''
         only-arches: '[x86_64]'
