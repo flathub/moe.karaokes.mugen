@@ -85,7 +85,7 @@ modules:
         mirror-urls:
           - https://luajit.org/git/luajit.git
         disable-shallow-clone: true
-        commit: 5790d253972c9d78a0c2aece527eda5b134bbbf7
+        commit: 93e87998b24021b94de8d1c8db244444c46fb6e9
         x-checker-data:
           type: json
           url: https://api.github.com/repos/LuaJIT/LuaJIT/commits
@@ -125,8 +125,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/libass/libass.git
-        tag: 0.17.1
-        commit: e8ad72accd3a84268275a9385beb701c9284e5b3
+        tag: 0.17.2
+        commit: cbb48cc4f2f076300004b8b06a86bec55281d0c2
         x-checker-data:
           type: git
           tag-pattern: ^(\d\.\d{1,3}\.\d{1,2})$
@@ -215,7 +215,7 @@ modules:
         url: https://github.com/jpsdr/x264
         mirror-urls:
           - https://code.videolan.org/videolan/x264.git
-        commit: 7ed753b10a61d0be95f683289dfb925b800b0676
+        commit: 4613ac3c15fd75cebc4b9f65b7fb95e70a3acce1
         x-checker-data:
           type: json
           url: https://code.videolan.org/api/v4/projects/536/repository/commits
@@ -357,8 +357,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/vapoursynth/vapoursynth.git
-        tag: R66
-        commit: fe6c67cdb17f41160c79434f0240077f74de9fd1
+        tag: R68
+        commit: 18bf017f8e6fac14b2fdb6a6d0c6e44c6686e4f3
         x-checker-data:
           type: git
           tag-pattern: ^R([\d.]+)$
@@ -410,8 +410,8 @@ modules:
             dest: third_party/spirv-headers
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.1.0
-            commit: ee2f5d09eaf8f4e8d0d598bd2172fce290d4ca60
+            tag: 14.2.0
+            commit: e8dd0b6903b34f1879520b444634c75ea2deedf5
             dest: third_party/glslang
             x-checker-data:
               type: git
@@ -451,12 +451,12 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/ed/ed-1.20.1.tar.lz
+        url: https://ftp.gnu.org/gnu/ed/ed-1.20.2.tar.lz
         mirror-urls:
           - https://mirrors.kernel.org/gnu/ed/ed-1.20.1.tar.lz
           - https://mirrors.ocf.berkeley.edu/gnu/ed/ed-1.20.1.tar.lz
           - https://ftpmirror.gnu.org/gnu/ed/ed-1.20.1.tar.lz
-        sha256: b1a463b297a141f9876c4b1fcd01477f645cded92168090e9a35db2af4babbca
+        sha256: 65fec7318f48c2ca17f334ac0f4703defe62037bb13cc23920de077b5fa24523
         x-checker-data:
           type: html
           url: https://ftp.gnu.org/gnu/ed/
@@ -619,8 +619,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl
-        sha256: 58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f
+          https://files.pythonhosted.org/packages/c3/20/748e38b466e0819491f0ce6e90ebe4184966ee304fe483e2c414b0f4ef07/requests-2.32.2-py3-none-any.whl
+        sha256: fc06670dd0ed212426dfeb94fc1b983d917c4f9847c863f313c9dfaaffb7c23c
         x-checker-data:
           type: pypi
           name: requests
@@ -670,8 +670,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/ce/2c/f7951f771261da6740af14fd9698064616aa040780cd8a03243fc43165c7/babelfish-0.6.0-py3-none-any.whl
-        sha256: 268f1c6279f2a04a66837972e8a9f3dcc68e16f1201eec57d2a4b828a8b41b11
+          https://files.pythonhosted.org/packages/95/a1/bd4f759db13cd8beb9c9f68682aced5d966781b9d7380cf514a306f56762/babelfish-0.6.1-py3-none-any.whl
+        sha256: 512f1501d4c8f7d38f0921f48660be7542de1a7b24abb6a6a65324a670150293
         x-checker-data:
           type: pypi
           name: babelfish
@@ -708,8 +708,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/01/f3/936e209267d6ef7510322191003885de524fc48d1b43269810cd589ceaf5/typing_extensions-4.11.0-py3-none-any.whl
-        sha256: c1f94d72897edaf4ce775bb7558d5b79d8126906a14ea5ed1635921406c0387a
+          https://files.pythonhosted.org/packages/e1/4d/d612de852a0bc64a64418e1cef25fe1914c5b1611e34cc271ed7e36174c8/typing_extensions-4.12.0-py3-none-any.whl
+        sha256: b349c66bea9016ac22978d800cfff206d5f9816951f12a7d0ec5578b0a819594
         x-checker-data:
           type: pypi
           name: typing-extensions
@@ -721,8 +721,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/62/bb/f487b5490301975d9c88e935043f2b6bc871ad4b90d570ce74c92879b0cb/dogpile.cache-1.3.2-py3-none-any.whl
-        sha256: c59250e23ddb4c03259c315c3b03d18b0658ec4f30ee665b39b91faf6401ef41
+          https://files.pythonhosted.org/packages/c9/b6/eb8bb5bced9f0bf475b22a53e86e4ed80fa60949de1133e2e673e23282d7/dogpile.cache-1.3.3-py3-none-any.whl
+        sha256: 5e211c4902ebdf88c678d268e22454b41e68071632daa9402d8ee24e825ed8ca
         x-checker-data:
           type: pypi
           name: dogpile.cache
