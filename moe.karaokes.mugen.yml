@@ -831,7 +831,7 @@ modules:
       append-path: /usr/lib/sdk/node20/bin
       env:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
-        npm_config_nodedir: /usr/lib/sdk/node20        
+        npm_config_nodedir: /usr/lib/sdk/node20
     build-commands:
       - >-
         install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
@@ -840,8 +840,7 @@ modules:
       - >-
         HOME=$PWD yarn config --offline set yarn-offline-mirror
         $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
-      - >-
-        SENTRYCLI_USE_LOCAL=1 yarn --offline
+      - SENTRYCLI_USE_LOCAL=1 yarn --offline install
       - yarn --offline build
       - yarn --offline installkmfrontend
       - NODE_OPTIONS=--openssl-legacy-provider yarn --offline buildkmfrontend
