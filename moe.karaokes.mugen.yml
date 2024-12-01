@@ -887,3 +887,8 @@ modules:
           https://downloads.sentry-cdn.com/sentry-cli/2.33.1/sentry-cli-Linux-x86_64
         sha256: f67c549d58467be3c2d387b42e52dc62502b14af0fee74c11c23e3fa75574d96
         only-arches: '[x86_64]'
+      - type: file
+        url: >-
+          https://downloads.sentry-cdn.com/sentry-cli/2.32.1/sentry-cli-Linux-aarch64
+        sha256: 4ac86ade7ff15391dfb7c2f3f24a2d05a2e43097f45f5c882043905aadd6060a
+        only-arches: '[aarch64]'
