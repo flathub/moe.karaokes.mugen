@@ -1,9 +1,9 @@
 app-id: moe.karaokes.mugen
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '23.08'
+base-version: '24.08'
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.node20
 command: km-wrapper
@@ -329,8 +329,8 @@ modules:
         url: https://github.com/FFmpeg/FFmpeg.git
         mirror-urls:
           - https://git.ffmpeg.org/ffmpeg.git
-        commit: d4ff0020b40b524a490cf62eccbd3a318f4c0e58
-        tag: n6.1
+        commit: b08d7969c550a804a59511c7b83f2dd8cc0499b8
+        tag: n7.1
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]{3,7})$
@@ -451,12 +451,12 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/ed/ed-1.20.2.tar.lz
+        url: https://ftp.gnu.org/gnu/ed/ed-1.21.tar.lz
         mirror-urls:
-          - https://mirrors.kernel.org/gnu/ed/ed-1.20.1.tar.lz
-          - https://mirrors.ocf.berkeley.edu/gnu/ed/ed-1.20.1.tar.lz
-          - https://ftpmirror.gnu.org/gnu/ed/ed-1.20.1.tar.lz
-        sha256: 65fec7318f48c2ca17f334ac0f4703defe62037bb13cc23920de077b5fa24523
+          - https://mirrors.kernel.org/gnu/ed/ed-1.21.tar.lz
+          - https://mirrors.ocf.berkeley.edu/gnu/ed/ed-1.21.tar.lz
+          - https://ftpmirror.gnu.org/gnu/ed/ed-1.21.tar.lz
+        sha256: 60e24998727d453a5cf02c54664b97536de46a2b34cd1f4f67c1c1a61bbbad75
         x-checker-data:
           type: html
           url: https://ftp.gnu.org/gnu/ed/
