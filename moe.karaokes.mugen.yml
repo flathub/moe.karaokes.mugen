@@ -275,20 +275,6 @@ modules:
         commands:
           - sed -i -e 's/lzma/xz/g' configure.ac
           - autoreconf -vif
-  - name: libjxl
-    buildsystem: cmake
-    config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DBUILD_TESTING=OFF'
-    sources:
-      - type: git
-        url: https://github.com/libjxl/libjxl.git
-        tag: v0.10.2
-        commit: e1489592a770b989303b0edc5cc1dc447bbe0515
-        disable-shallow-clone: true
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
   - name: ffmpeg
     cleanup:
       - /include
