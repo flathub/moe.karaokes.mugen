@@ -837,6 +837,7 @@ modules:
         install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
         $1'}) /app/bin/sentry-cli
       - install -d v8.14.5/
+      - git apply name-change.patch
       - >-
         HOME=$PWD yarn config --offline set yarn-offline-mirror
         $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
@@ -882,6 +883,8 @@ modules:
         path: moe.karaokes.mugen.metainfo.xml
       - type: file
         path: moe.karaokes.mugen.desktop
+      - type: file
+        path: name-change.patch
       - type: file
         url: >-
           https://downloads.sentry-cdn.com/sentry-cli/2.39.1/sentry-cli-Linux-x86_64
