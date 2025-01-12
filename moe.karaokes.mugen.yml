@@ -868,8 +868,6 @@ modules:
       - type: file
         path: moe.karaokes.mugen.desktop
       - type: file
-        path: name-change.patch
-      - type: file
         url: >-
           https://downloads.sentry-cdn.com/sentry-cli/2.40.0/sentry-cli-Linux-x86_64
         sha256: 342d5440a7e852fc4d7621c3fa5efe302056bf0ada3f9a96fca1006b3eb297ab
