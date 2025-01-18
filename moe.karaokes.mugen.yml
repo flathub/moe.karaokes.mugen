@@ -679,7 +679,8 @@ modules:
       - pip3 install --prefix=/app enzyme-*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/67/bc/be0fbce0eb198f4361f462520122151b0ec347ecaeb5d349cf36ae0ac751/enzyme-0.5.2-py3-none-any.whl
+        url: >-
+          https://files.pythonhosted.org/packages/67/bc/be0fbce0eb198f4361f462520122151b0ec347ecaeb5d349cf36ae0ac751/enzyme-0.5.2-py3-none-any.whl
         sha256: 5a85306c136368d78f299bb74bf0c5f5d37e2689adc5caec5aba5ee2f029296b
         x-checker-data:
           type: pypi
@@ -852,8 +853,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: c1a33f70b0494306f59f60d110578fb327d6a2c7
-        tag: 8.0.48
+        commit: 2d0a71f8ae50a33bd2718e8dd5be640ee120a778
+        tag: 8.0.54
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
