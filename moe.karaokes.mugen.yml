@@ -225,9 +225,6 @@ modules:
         url: https://bitbucket.org/multicoreware/x265_git.git
         tag: '3.6'
         commit: aa7f602f7592eddb9d87749be7466da005b556ee
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
   - name: libmysofa
     buildsystem: cmake
     config-opts:
