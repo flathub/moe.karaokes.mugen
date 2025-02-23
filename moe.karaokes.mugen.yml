@@ -9,24 +9,24 @@ sdk-extensions:
 command: km-wrapper
 separate-locales: false
 finish-args:
-  - '--filesystem=~/KaraokeMugen:create'
-  - '--filesystem=xdg-run/app/com.discordapp.Discord:create'
-  - '--filesystem=xdg-run/app/com.discordapp.DiscordCanary:create'
-  - '--share=ipc'
-  - '--socket=fallback-x11'
-  - '--socket=pulseaudio'
-  - '--socket=wayland'
-  - '--device=all'
-  - '--own-name=org.mpris.MediaPlayer2.KaraokeMugen.*'
-  - '--talk-name=org.gnome.SessionManager'
-  - '--share=network'
-  - '--system-talk-name=org.freedesktop.UPower'
-  - '--talk-name=com.canonical.AppMenu.Registrar'
-  - '--talk-name=com.canonical.dbusmenu'
-  - '--talk-name=org.freedesktop.Notifications'
-  - '--talk-name=org.kde.StatusNotifierWatcher'
-  - '--env=LC_NUMERIC=C'
-  - '--env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons'
+  - --filesystem=~/KaraokeMugen:create
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
+  - --filesystem=xdg-run/app/com.discordapp.DiscordCanary:create
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --device=all
+  - --own-name=org.mpris.MediaPlayer2.KaraokeMugen.*
+  - --talk-name=org.gnome.SessionManager
+  - --share=network
+  - --system-talk-name=org.freedesktop.UPower
+  - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=com.canonical.dbusmenu
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --env=LC_NUMERIC=C
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 cleanup:
   - '*.la'
   - '*.a'
@@ -92,8 +92,8 @@ modules:
   - name: uchardet
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DBUILD_STATIC=0'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_STATIC=0
     cleanup:
       - /bin
       - /include
@@ -115,7 +115,7 @@ modules:
       - /include
       - /lib/pkgconfig
     config-opts:
-      - '--disable-static'
+      - --disable-static
     sources:
       - type: git
         url: https://github.com/libass/libass.git
@@ -126,7 +126,7 @@ modules:
           tag-pattern: ^(\d\.\d{1,3}\.\d{1,2})$
   - name: zimg
     config-opts:
-      - '--disable-static'
+      - --disable-static
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -202,8 +202,8 @@ modules:
       - /lib/pkgconfig
       - /share/man
     config-opts:
-      - '--disable-cli'
-      - '--enable-shared'
+      - --disable-cli
+      - --enable-shared
     sources:
       - type: git
         url: https://github.com/jpsdr/x264
@@ -214,8 +214,8 @@ modules:
     buildsystem: cmake
     subdir: source
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DBUILD_STATIC=0'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_STATIC=0
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -228,7 +228,7 @@ modules:
   - name: libmysofa
     buildsystem: cmake
     config-opts:
-      - '-DBUILD_TESTS=OFF'
+      - -DBUILD_TESTS=OFF
     sources:
       - type: git
         commit: 444d2c1d7ececf5cc2d96d3b17b209047b02318d
@@ -240,7 +240,7 @@ modules:
   - name: libbs2b
     buildsystem: autotools
     config-opts:
-      - '--disable-static'
+      - --disable-static
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -266,30 +266,30 @@ modules:
       - /lib/pkgconfig
       - /share/ffmpeg/examples
     config-opts:
-      - '--disable-debug'
-      - '--disable-doc'
-      - '--disable-static'
-      - '--enable-encoder=png'
-      - '--enable-gnutls'
-      - '--enable-gpl'
-      - '--enable-shared'
-      - '--enable-version3'
-      - '--enable-libaom'
-      - '--enable-libass'
-      - '--enable-libbs2b'
-      - '--enable-libdav1d'
-      - '--enable-libfreetype'
-      - '--enable-libmp3lame'
-      - '--enable-libopus'
-      - '--enable-libjxl'
-      - '--enable-libmysofa'
-      - '--enable-libtheora'
-      - '--enable-libvorbis'
-      - '--enable-libvpx'
-      - '--enable-libx264'
-      - '--enable-libx265'
-      - '--enable-libwebp'
-      - '--enable-libxml2'
+      - --disable-debug
+      - --disable-doc
+      - --disable-static
+      - --enable-encoder=png
+      - --enable-gnutls
+      - --enable-gpl
+      - --enable-shared
+      - --enable-version3
+      - --enable-libaom
+      - --enable-libass
+      - --enable-libbs2b
+      - --enable-libdav1d
+      - --enable-libfreetype
+      - --enable-libmp3lame
+      - --enable-libopus
+      - --enable-libjxl
+      - --enable-libmysofa
+      - --enable-libtheora
+      - --enable-libvorbis
+      - --enable-libvpx
+      - --enable-libx264
+      - --enable-libx265
+      - --enable-libwebp
+      - --enable-libxml2
     post-install:
       - install -d /app/km
       - install -d /app/km/app/
@@ -323,8 +323,8 @@ modules:
           version-query: .[0].name
   - name: vapoursynth
     config-opts:
-      - '--disable-static'
-      - '--with-python_prefix=/app'
+      - --disable-static
+      - --with-python_prefix=/app
     sources:
       - type: git
         url: https://github.com/vapoursynth/vapoursynth.git
@@ -336,8 +336,8 @@ modules:
   - name: libplacebo
     buildsystem: meson
     config-opts:
-      - '-Dvulkan=enabled'
-      - '-Dshaderc=enabled'
+      - -Dvulkan=enabled
+      - -Dshaderc=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -356,11 +356,11 @@ modules:
         buildsystem: cmake-ninja
         builddir: true
         config-opts:
-          - '-DSHADERC_SKIP_COPYRIGHT_CHECK=ON'
-          - '-DSHADERC_SKIP_EXAMPLES=ON'
-          - '-DSHADERC_SKIP_TESTS=ON'
-          - '-DSPIRV_SKIP_EXECUTABLES=ON'
-          - '-DENABLE_GLSLANG_BINARIES=OFF'
+          - -DSHADERC_SKIP_COPYRIGHT_CHECK=ON
+          - -DSHADERC_SKIP_EXAMPLES=ON
+          - -DSHADERC_SKIP_TESTS=ON
+          - -DSPIRV_SKIP_EXECUTABLES=ON
+          - -DENABLE_GLSLANG_BINARIES=OFF
         cleanup:
           - /bin
           - /include
@@ -389,15 +389,15 @@ modules:
   - name: mpv
     buildsystem: meson
     config-opts:
-      - '-Dbuild-date=false'
-      - '-Dlibmpv=true'
-      - '-Dmanpage-build=disabled'
-      - '-Dcdda=disabled'
-      - '-Ddvbin=disabled'
-      - '-Ddvdnav=disabled'
-      - '-Dlibarchive=enabled'
-      - '-Dsdl2=enabled'
-      - '-Dvulkan=enabled'
+      - -Dbuild-date=false
+      - -Dlibmpv=true
+      - -Dmanpage-build=disabled
+      - -Dcdda=disabled
+      - -Ddvbin=disabled
+      - -Ddvdnav=disabled
+      - -Dlibarchive=enabled
+      - -Dsdl2=enabled
+      - -Dvulkan=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -536,8 +536,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/d5/50/83c593b07763e1161326b3b8c6686f0f4b0f24d5526546bee538c89837d6/decorator-5.1.1-py3-none-any.whl
-        sha256: b8c3f85900b9dc423225913c5aace94729fe1fa9763b38939a95226f02d37186
+          https://files.pythonhosted.org/packages/f6/0e/fc5d7660912606d43f32470cf952846a47512d3674fe9a3196f1a80a638b/decorator-5.2.0-py3-none-any.whl
+        sha256: f30a69c066f698c7c11fa1fa3425f684d3b4b01b494ee41e73c0a14f3de48427
         x-checker-data:
           type: pypi
           name: decorator
@@ -575,8 +575,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/8f/73/d0091d22a65b55e8fb6aca7b3b6713b5a261dd01cec4cfd28ed127ac0cfc/stevedore-5.4.0-py3-none-any.whl
-        sha256: b0be3c4748b3ea7b854b265dcb4caa891015e442416422be16f8b31756107857
+          https://files.pythonhosted.org/packages/f7/45/8c4ebc0c460e6ec38e62ab245ad3c7fc10b210116cea7c16d61602aa9558/stevedore-5.4.1-py3-none-any.whl
+        sha256: d10a31c7b86cba16c1f6e8d15416955fc797052351a56af15e608ad20811fcfe
         x-checker-data:
           type: pypi
           name: stevedore
