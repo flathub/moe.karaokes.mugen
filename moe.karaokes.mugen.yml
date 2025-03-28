@@ -351,41 +351,6 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-    modules:
-      - name: shaderc
-        buildsystem: cmake-ninja
-        builddir: true
-        config-opts:
-          - -DSHADERC_SKIP_COPYRIGHT_CHECK=ON
-          - -DSHADERC_SKIP_EXAMPLES=ON
-          - -DSHADERC_SKIP_TESTS=ON
-          - -DSPIRV_SKIP_EXECUTABLES=ON
-          - -DENABLE_GLSLANG_BINARIES=OFF
-        cleanup:
-          - /bin
-          - /include
-          - /lib/cmake
-          - /lib/pkgconfig
-        sources:
-          - type: git
-            url: https://github.com/google/shaderc.git
-            commit: caa54d9779d5605aca4e1a0c0c962a3d8f4aeb31
-          - type: git
-            url: https://github.com/KhronosGroup/SPIRV-Tools.git
-            commit: 4d2f0b40bfe290dea6c6904dafdf7fd8328ba346
-            dest: third_party/spirv-tools
-          - type: git
-            url: https://github.com/KhronosGroup/SPIRV-Headers.git
-            commit: 3f17b2af6784bfa2c5aa5dbb8e0e74a607dd8b3b
-            dest: third_party/spirv-headers
-          - type: git
-            url: https://github.com/KhronosGroup/glslang.git
-            tag: 15.1.0
-            commit: 1062752a891c95b2bfeed9e356562d88f9df84ac
-            dest: third_party/glslang
-            x-checker-data:
-              type: git
-              tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
   - name: mpv
     buildsystem: meson
     config-opts:
