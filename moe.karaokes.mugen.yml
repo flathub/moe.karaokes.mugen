@@ -85,7 +85,7 @@ modules:
         mirror-urls:
           - https://luajit.org/git/luajit.git
         disable-shallow-clone: true
-        commit: f73e649a954b599fc184726c376476e7a5c439ca
+        commit: 538a82133ad6fddfd0ca64de167c4aca3bc1a2da
       - type: shell
         commands:
           - sed -i 's|/usr/local|/app|' ./Makefile
@@ -209,7 +209,7 @@ modules:
         url: https://github.com/jpsdr/x264
         mirror-urls:
           - https://code.videolan.org/videolan/x264.git
-        commit: 373697b467f7cd0af88f1e9e32d4f10540df4687
+        commit: 31e19f92f00c7003fa115047ce50978bc98c3a0d
   - name: x265
     buildsystem: cmake
     subdir: source
@@ -223,8 +223,8 @@ modules:
     sources:
       - type: git
         url: https://bitbucket.org/multicoreware/x265_git.git
-        tag: '3.6'
-        commit: aa7f602f7592eddb9d87749be7466da005b556ee
+        tag: '4.0'
+        commit: 6318f223684118a2c71f67f3f4633a9e35046b00
   - name: libmysofa
     buildsystem: cmake
     config-opts:
@@ -758,8 +758,8 @@ modules:
     sources:
       - type: git
         url: https://git.postgresql.org/git/postgresql.git
-        commit: 1f47e7b59b92c58eee6840325d1aaa6acee84194
-        tag: REL_16_6
+        commit: f8554dee417ffc4540c94cf357f7bf7d4b6e5d80
+        tag: REL_17_4
   - name: karaokemugen
     buildsystem: simple
     build-options:
