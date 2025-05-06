@@ -5,28 +5,28 @@ sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
 base-version: '24.08'
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node20
+  - org.freedesktop.Sdk.Extension.node22
 command: km-wrapper
 separate-locales: false
 finish-args:
-  - --filesystem=~/KaraokeMugen:create
-  - --filesystem=xdg-run/app/com.discordapp.Discord:create
-  - --filesystem=xdg-run/app/com.discordapp.DiscordCanary:create
-  - --share=ipc
-  - --socket=fallback-x11
-  - --socket=pulseaudio
-  - --socket=wayland
-  - --device=all
-  - --own-name=org.mpris.MediaPlayer2.KaraokeMugen.*
-  - --talk-name=org.gnome.SessionManager
-  - --share=network
-  - --system-talk-name=org.freedesktop.UPower
-  - --talk-name=com.canonical.AppMenu.Registrar
-  - --talk-name=com.canonical.dbusmenu
-  - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.kde.StatusNotifierWatcher
-  - --env=LC_NUMERIC=C
-  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+  - '--filesystem=~/KaraokeMugen:create'
+  - '--filesystem=xdg-run/app/com.discordapp.Discord:create'
+  - '--filesystem=xdg-run/app/com.discordapp.DiscordCanary:create'
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=pulseaudio'
+  - '--socket=wayland'
+  - '--device=all'
+  - '--own-name=org.mpris.MediaPlayer2.KaraokeMugen.*'
+  - '--talk-name=org.gnome.SessionManager'
+  - '--share=network'
+  - '--system-talk-name=org.freedesktop.UPower'
+  - '--talk-name=com.canonical.AppMenu.Registrar'
+  - '--talk-name=com.canonical.dbusmenu'
+  - '--talk-name=org.freedesktop.Notifications'
+  - '--talk-name=org.kde.StatusNotifierWatcher'
+  - '--env=LC_NUMERIC=C'
+  - '--env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons'
 cleanup:
   - '*.la'
   - '*.a'
@@ -92,8 +92,8 @@ modules:
   - name: uchardet
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_STATIC=0
+      - '-DCMAKE_BUILD_TYPE=Release'
+      - '-DBUILD_STATIC=0'
     cleanup:
       - /bin
       - /include
@@ -115,7 +115,7 @@ modules:
       - /include
       - /lib/pkgconfig
     config-opts:
-      - --disable-static
+      - '--disable-static'
     sources:
       - type: git
         url: https://github.com/libass/libass.git
@@ -126,7 +126,7 @@ modules:
           tag-pattern: ^(\d\.\d{1,3}\.\d{1,2})$
   - name: zimg
     config-opts:
-      - --disable-static
+      - '--disable-static'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -202,8 +202,8 @@ modules:
       - /lib/pkgconfig
       - /share/man
     config-opts:
-      - --disable-cli
-      - --enable-shared
+      - '--disable-cli'
+      - '--enable-shared'
     sources:
       - type: git
         url: https://github.com/jpsdr/x264
@@ -214,8 +214,8 @@ modules:
     buildsystem: cmake
     subdir: source
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_STATIC=0
+      - '-DCMAKE_BUILD_TYPE=Release'
+      - '-DBUILD_STATIC=0'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -228,7 +228,7 @@ modules:
   - name: libmysofa
     buildsystem: cmake
     config-opts:
-      - -DBUILD_TESTS=OFF
+      - '-DBUILD_TESTS=OFF'
     sources:
       - type: git
         commit: 444d2c1d7ececf5cc2d96d3b17b209047b02318d
@@ -240,7 +240,7 @@ modules:
   - name: libbs2b
     buildsystem: autotools
     config-opts:
-      - --disable-static
+      - '--disable-static'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -266,30 +266,30 @@ modules:
       - /lib/pkgconfig
       - /share/ffmpeg/examples
     config-opts:
-      - --disable-debug
-      - --disable-doc
-      - --disable-static
-      - --enable-encoder=png
-      - --enable-gnutls
-      - --enable-gpl
-      - --enable-shared
-      - --enable-version3
-      - --enable-libaom
-      - --enable-libass
-      - --enable-libbs2b
-      - --enable-libdav1d
-      - --enable-libfreetype
-      - --enable-libmp3lame
-      - --enable-libopus
-      - --enable-libjxl
-      - --enable-libmysofa
-      - --enable-libtheora
-      - --enable-libvorbis
-      - --enable-libvpx
-      - --enable-libx264
-      - --enable-libx265
-      - --enable-libwebp
-      - --enable-libxml2
+      - '--disable-debug'
+      - '--disable-doc'
+      - '--disable-static'
+      - '--enable-encoder=png'
+      - '--enable-gnutls'
+      - '--enable-gpl'
+      - '--enable-shared'
+      - '--enable-version3'
+      - '--enable-libaom'
+      - '--enable-libass'
+      - '--enable-libbs2b'
+      - '--enable-libdav1d'
+      - '--enable-libfreetype'
+      - '--enable-libmp3lame'
+      - '--enable-libopus'
+      - '--enable-libjxl'
+      - '--enable-libmysofa'
+      - '--enable-libtheora'
+      - '--enable-libvorbis'
+      - '--enable-libvpx'
+      - '--enable-libx264'
+      - '--enable-libx265'
+      - '--enable-libwebp'
+      - '--enable-libxml2'
     post-install:
       - install -d /app/km
       - install -d /app/km/app/
@@ -323,8 +323,8 @@ modules:
           version-query: .[0].name
   - name: vapoursynth
     config-opts:
-      - --disable-static
-      - --with-python_prefix=/app
+      - '--disable-static'
+      - '--with-python_prefix=/app'
     sources:
       - type: git
         url: https://github.com/vapoursynth/vapoursynth.git
@@ -336,8 +336,8 @@ modules:
   - name: libplacebo
     buildsystem: meson
     config-opts:
-      - -Dvulkan=enabled
-      - -Dshaderc=enabled
+      - '-Dvulkan=enabled'
+      - '-Dshaderc=enabled'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -354,15 +354,15 @@ modules:
   - name: mpv
     buildsystem: meson
     config-opts:
-      - -Dbuild-date=false
-      - -Dlibmpv=true
-      - -Dmanpage-build=disabled
-      - -Dcdda=disabled
-      - -Ddvbin=disabled
-      - -Ddvdnav=disabled
-      - -Dlibarchive=enabled
-      - -Dsdl2=enabled
-      - -Dvulkan=enabled
+      - '-Dbuild-date=false'
+      - '-Dlibmpv=true'
+      - '-Dmanpage-build=disabled'
+      - '-Dcdda=disabled'
+      - '-Ddvbin=disabled'
+      - '-Ddvdnav=disabled'
+      - '-Dlibarchive=enabled'
+      - '-Dsdl2=enabled'
+      - '-Dvulkan=enabled'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -763,10 +763,10 @@ modules:
   - name: karaokemugen
     buildsystem: simple
     build-options:
-      append-path: /usr/lib/sdk/node20/bin
+      append-path: /usr/lib/sdk/node22/bin
       env:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
-        npm_config_nodedir: /usr/lib/sdk/node20
+        npm_config_nodedir: /usr/lib/sdk/node22
     build-commands:
       - >-
         install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
@@ -803,8 +803,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: 9bdae0090fa295e0e36e1a67438c12c1c7a95843
-        tag: 8.0.65
+        commit: 4be683b527a1c2231fb25e95f54e8ea57da22964
+        tag: 8.0.78
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
@@ -820,6 +820,6 @@ modules:
         path: moe.karaokes.mugen.desktop
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/2.41.1/sentry-cli-Linux-x86_64
-        sha256: a007369907840f26b68d0ce83037abf2b14fc68162fdef1d071885a1ace5e3cf
+          https://downloads.sentry-cdn.com/sentry-cli/2.43.0/sentry-cli-Linux-x86_64
+        sha256: d9b5d6f98678cbd2d8fe1ade321125cb3a4baaa20463f72f0dc61083184ac85b
         only-arches: '[x86_64]'
