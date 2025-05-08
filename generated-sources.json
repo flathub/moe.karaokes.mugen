@@ -19052,9 +19052,9 @@
         "type": "shell",
         "commands": [
             "mkdir -p flatpak-node/yarn-mirror",
-            "cd flatpak-node/tmp/nop.git-f110e75f62cfe3bf4468ac3b74e3dc72ab9ae4bf; git archive --format tar -o ../../yarn-mirror/nop.git-f110e75f62cfe3bf4468ac3b74e3dc72ab9ae4bf HEAD",
-            "mkdir -p flatpak-node/yarn-mirror",
             "cd flatpak-node/tmp/node-gyp-06b29aafb7708acef8b3669835c8a7857ebc92d2; git archive --format tar -o ../../yarn-mirror/node-gyp-06b29aafb7708acef8b3669835c8a7857ebc92d2 HEAD",
+            "mkdir -p flatpak-node/yarn-mirror",
+            "cd flatpak-node/tmp/nop.git-f110e75f62cfe3bf4468ac3b74e3dc72ab9ae4bf; git archive --format tar -o ../../yarn-mirror/nop.git-f110e75f62cfe3bf4468ac3b74e3dc72ab9ae4bf HEAD",
             "bash flatpak-node/setup_sdk_node_headers.sh"
         ]
     }

@@ -803,8 +803,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: 4be683b527a1c2231fb25e95f54e8ea57da22964
-        tag: 8.0.78
+        commit: f08585ad2ed39fa91d0f43fe48d436547d43e931
+        tag: 8.0.79
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
