@@ -455,7 +455,7 @@ modules:
       - '-Dlcms2=enabled'
       - '-Dlibarchive=enabled'
       - '-Dlibavdevice=enabled'
-      - '-Dlibbluray=enabled'
+      - '-Dlibbluray=disabled'
       - '-Dlibmpv=true'
       - '-Dlua=enabled'
       - '-Dopenal=enabled'
