@@ -84,12 +84,6 @@ modules:
         url: https://github.com/LuaJIT/LuaJIT.git
         disable-shallow-clone: true
         commit: f9140a622a0c44a99efb391cc1c2358bc8098ab7
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/LuaJIT/LuaJIT/branches/v2.1
-          commit-query: .commit.sha
-          version-query: .commit.sha
-          timestamp-query: .commit.commit.committer.date
       - type: shell
         commands:
           - sed -i 's|/usr/local|/app|' ./Makefile
@@ -270,13 +264,6 @@ modules:
       - type: git
         url: https://github.com/mirror/x264.git
         commit: 31e19f92f00c7003fa115047ce50978bc98c3a0d
-        x-checker-data:
-          type: json
-          url: >-
-            https://code.videolan.org/api/v4/projects/536/repository/branches/stable
-          commit-query: .commit.id
-          version-query: .commit.short_id
-          timestamp-query: .commit.created_at
   - name: x265
     buildsystem: cmake
     subdir: source
