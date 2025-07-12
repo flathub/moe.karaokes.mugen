@@ -887,6 +887,11 @@ modules:
       env:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
         npm_config_nodedir: /usr/lib/sdk/node22
+        YARN_GLOBAL_FOLDER: /run/build/karaokemugen/flatpak-node/yarn-mirror/global
+        YARN_ENABLE_INLINE_BUILDS: '1'
+        YARN_ENABLE_TELEMETRY: '0'
+        YARN_ENABLE_NETWORK: '0'
+        YARN_ENABLE_GLOBAL_CACHE: '0'
     build-commands:
       - >-
         install -D sentry-cli-Linux-$(gcc --print-multiarch | awk -F- {'print
@@ -894,17 +899,21 @@ modules:
       - install -d v8.14.5/
       - sed -i 's/\"karaokemugen-app\"/\"moe.karaokes.mugen\"/g' package.json
       - >-
-        HOME=$PWD yarn config --offline set yarn-offline-mirror
-        $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
-      - SENTRYCLI_USE_LOCAL=1 yarn --offline install
-      - yarn --offline build
-      - yarn --offline installkmfrontend
-      - NODE_OPTIONS=--openssl-legacy-provider yarn --offline buildkmfrontend
+        sed --in-place 's/configuration.get(`lockfileFilename`)/"yarn.lock"/g'
+        $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
+      - >-
+        yarn plugin import
+        $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
+      - yarn convertToZip $(which yarn)
+      - SENTRYCLI_USE_LOCAL=1 yarn install
+      - yarn remove corepack
+      - yarn build
+      - yarn installkmfrontend
+      - NODE_OPTIONS=--openssl-legacy-provider yarn buildkmfrontend
       - git rev-parse HEAD | head -c 8 > assets/sha.txt
       - >-
-        . flatpak-node/electron-builder-arch-args.sh; yarn run electron-builder
-        --dir -c.compression=store -c.mac.identity=null
-        $ELECTRON_BUILDER_ARCH_ARGS
+        . flatpak-node/electron-builder-arch-args.sh; npx electron-builder --dir
+        -c.compression=store -c.mac.identity=null $ELECTRON_BUILDER_ARCH_ARGS
       - cp -r packages/linux*unpacked/* /app/km/
       - install -d /app/km/app/
       - install -d /app/km/app/bin
