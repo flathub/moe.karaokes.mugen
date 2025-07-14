@@ -1,0 +1,9 @@
+{
+  "search.followSymlinks": false,
+  "[yaml]": {
+    "editor.defaultFormatter": ""
+  },
+  "yaml.schemas": {
+    "https://www.schemastore.org/tmlanguage.json": "file:///tmp/.zhistory2"
+  }
+}
