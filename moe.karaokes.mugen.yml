@@ -9,24 +9,24 @@ sdk-extensions:
 command: km-wrapper
 separate-locales: false
 finish-args:
-  - '--filesystem=~/KaraokeMugen:create'
-  - '--filesystem=xdg-run/app/com.discordapp.Discord:create'
-  - '--filesystem=xdg-run/app/com.discordapp.DiscordCanary:create'
-  - '--share=ipc'
-  - '--socket=fallback-x11'
-  - '--socket=pulseaudio'
-  - '--socket=wayland'
-  - '--device=all'
-  - '--own-name=org.mpris.MediaPlayer2.KaraokeMugen.*'
-  - '--talk-name=org.gnome.SessionManager'
-  - '--share=network'
-  - '--system-talk-name=org.freedesktop.UPower'
-  - '--talk-name=com.canonical.AppMenu.Registrar'
-  - '--talk-name=com.canonical.dbusmenu'
-  - '--talk-name=org.freedesktop.Notifications'
-  - '--talk-name=org.kde.StatusNotifierWatcher'
-  - '--env=LC_NUMERIC=C'
-  - '--env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons'
+  - --filesystem=~/KaraokeMugen:create
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
+  - --filesystem=xdg-run/app/com.discordapp.DiscordCanary:create
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --device=all
+  - --own-name=org.mpris.MediaPlayer2.KaraokeMugen.*
+  - --talk-name=org.gnome.SessionManager
+  - --share=network
+  - --system-talk-name=org.freedesktop.UPower
+  - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=com.canonical.dbusmenu
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --env=LC_NUMERIC=C
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 cleanup:
   - '*.la'
   - '*.a'
@@ -90,8 +90,8 @@ modules:
   - name: uchardet
     buildsystem: cmake-ninja
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DBUILD_STATIC=0'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_STATIC=0
     cleanup:
       - /bin
       - /include
@@ -113,10 +113,10 @@ modules:
       - /include
       - /lib/pkgconfig
     config-opts:
-      - '--disable-static'
-      - '--enable-asm'
-      - '--enable-harfbuzz'
-      - '--enable-fontconfig'
+      - --disable-static
+      - --enable-asm
+      - --enable-harfbuzz
+      - --enable-fontconfig
     sources:
       - type: git
         url: https://github.com/libass/libass.git
@@ -127,8 +127,8 @@ modules:
           tag-pattern: ^(\d\.\d{1,3}\.\d{1,2})$
   - name: libgcrypt
     config-opts:
-      - '--disable-static'
-      - '--disable-doc'
+      - --disable-static
+      - --disable-doc
     sources:
       - type: git
         url: https://dev.gnupg.org/source/libgcrypt.git
@@ -136,7 +136,7 @@ modules:
         commit: aa1610866f8e42bdc272584f0a717f32ee050a22
   - name: zimg
     config-opts:
-      - '--disable-static'
+      - --disable-static
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -154,12 +154,12 @@ modules:
           timestamp-query: .published_at
   - name: Tesseract
     config-opts:
-      - '--disable-static'
+      - --disable-static
     modules:
       - name: Leptonica
         config-opts:
-          - '--disable-static'
-          - '--with-pic'
+          - --disable-static
+          - --with-pic
         sources:
           - type: archive
             url: http://www.leptonica.org/source/leptonica-1.85.0.tar.gz
@@ -186,10 +186,10 @@ modules:
       - /bin
   - name: ImageMagick
     config-opts:
-      - '--disable-static'
-      - '--disable-docs'
-      - '--with-hdri'
-      - '--with-pic'
+      - --disable-static
+      - --disable-docs
+      - --with-hdri
+      - --with-pic
     sources:
       - type: archive
         url: https://github.com/ImageMagick/ImageMagick/archive/7.1.1-47.tar.gz
@@ -232,8 +232,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ccxvii/mujs.git
-        tag: 1.3.6
-        commit: cc569c5fa9a7a2498177693b5617605c2ff5b260
+        tag: 1.3.7
+        commit: 05cd646bad083ed45e9e1c9846ea671d461ced30
         x-checker-data:
           type: git
           url: https://api.github.com/repos/ccxvii/mujs/tags
@@ -258,8 +258,8 @@ modules:
       - /lib/pkgconfig
       - /share/man
     config-opts:
-      - '--disable-cli'
-      - '--enable-shared'
+      - --disable-cli
+      - --enable-shared
     sources:
       - type: git
         url: https://github.com/mirror/x264.git
@@ -268,8 +268,8 @@ modules:
     buildsystem: cmake
     subdir: source
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DBUILD_STATIC=0'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_STATIC=0
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -282,7 +282,7 @@ modules:
   - name: libmysofa
     buildsystem: cmake
     config-opts:
-      - '-DBUILD_TESTS=OFF'
+      - -DBUILD_TESTS=OFF
     sources:
       - type: git
         commit: 444d2c1d7ececf5cc2d96d3b17b209047b02318d
@@ -294,7 +294,7 @@ modules:
   - name: libbs2b
     buildsystem: autotools
     config-opts:
-      - '--disable-static'
+      - --disable-static
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -320,33 +320,33 @@ modules:
       - /lib/pkgconfig
       - /share/ffmpeg/examples
     config-opts:
-      - '--disable-debug'
-      - '--disable-doc'
-      - '--disable-static'
-      - '--enable-encoder=png'
-      - '--enable-gnutls'
-      - '--enable-gpl'
-      - '--enable-shared'
-      - '--enable-version3'
-      - '--enable-libaom'
-      - '--enable-libass'
-      - '--enable-libbs2b'
-      - '--enable-libdav1d'
-      - '--enable-libfreetype'
-      - '--enable-libmp3lame'
-      - '--enable-libopus'
-      - '--enable-libjxl'
-      - '--enable-libmysofa'
-      - '--enable-libtheora'
-      - '--enable-libvorbis'
-      - '--enable-libvpx'
-      - '--enable-libx264'
-      - '--enable-libx265'
-      - '--enable-libwebp'
-      - '--enable-libxml2'
-      - '--enable-vulkan'
-      - '--enable-libdrm'
-      - '--enable-vaapi'
+      - --disable-debug
+      - --disable-doc
+      - --disable-static
+      - --enable-encoder=png
+      - --enable-gnutls
+      - --enable-gpl
+      - --enable-shared
+      - --enable-version3
+      - --enable-libaom
+      - --enable-libass
+      - --enable-libbs2b
+      - --enable-libdav1d
+      - --enable-libfreetype
+      - --enable-libmp3lame
+      - --enable-libopus
+      - --enable-libjxl
+      - --enable-libmysofa
+      - --enable-libtheora
+      - --enable-libvorbis
+      - --enable-libvpx
+      - --enable-libx264
+      - --enable-libx265
+      - --enable-libwebp
+      - --enable-libxml2
+      - --enable-vulkan
+      - --enable-libdrm
+      - --enable-vaapi
     post-install:
       - install -d /app/km
       - install -d /app/km/app/
@@ -378,7 +378,7 @@ modules:
           version-query: .[0].name
   - name: vapoursynth
     config-opts:
-      - '--with-python-prefix=${FLATPAK_DEST}'
+      - --with-python-prefix=${FLATPAK_DEST}
     sources:
       - type: archive
         url: https://github.com/vapoursynth/vapoursynth/archive/72.tar.gz
@@ -391,8 +391,8 @@ modules:
   - name: libplacebo
     buildsystem: meson
     config-opts:
-      - '-Dvulkan=enabled'
-      - '-Dshaderc=enabled'
+      - -Dvulkan=enabled
+      - -Dshaderc=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -417,59 +417,59 @@ modules:
   - name: mpv
     buildsystem: meson
     config-opts:
-      - '-Dalsa=enabled'
-      - '-Dbuild-date=false'
-      - '-Dcdda=disabled'
-      - '-Dcplayer=true'
-      - '-Dcplugins=enabled'
-      - '-Dcuda-hwaccel=enabled'
-      - '-Dcuda-interop=enabled'
-      - '-Ddmabuf-wayland=enabled'
-      - '-Ddrm=enabled'
-      - '-Ddvbin=disabled'
-      - '-Ddvdnav=disabled'
-      - '-Degl-drm=enabled'
-      - '-Degl-wayland=enabled'
-      - '-Degl-x11=enabled'
-      - '-Degl=enabled'
-      - '-Dgbm=enabled'
-      - '-Dgl-x11=enabled'
-      - '-Dgl=enabled'
-      - '-Diconv=enabled'
-      - '-Djack=enabled'
-      - '-Djavascript=enabled'
-      - '-Djpeg=enabled'
-      - '-Dlcms2=enabled'
-      - '-Dlibarchive=enabled'
-      - '-Dlibavdevice=enabled'
-      - '-Dlibbluray=disabled'
-      - '-Dlibmpv=true'
-      - '-Dlua=enabled'
-      - '-Dopenal=enabled'
-      - '-Dpipewire=enabled'
-      - '-Dplain-gl=enabled'
-      - '-Dpulse=enabled'
-      - '-Drubberband=enabled'
-      - '-Dsdl2-audio=enabled'
-      - '-Dsdl2-gamepad=enabled'
-      - '-Dsdl2-video=enabled'
-      - '-Dsdl2=enabled'
-      - '-Duchardet=enabled'
-      - '-Dvaapi-drm=enabled'
-      - '-Dvaapi-wayland=enabled'
-      - '-Dvaapi-x11=enabled'
-      - '-Dvaapi=enabled'
-      - '-Dvapoursynth=enabled'
-      - '-Dvdpau-gl-x11=enabled'
-      - '-Dvdpau=enabled'
-      - '-Dvector=enabled'
-      - '-Dvulkan=enabled'
-      - '-Dwayland=enabled'
-      - '-Dwerror=false'
-      - '-Dx11=enabled'
-      - '-Dxv=enabled'
-      - '-Dzimg=enabled'
-      - '-Dzlib=enabled'
+      - -Dalsa=enabled
+      - -Dbuild-date=false
+      - -Dcdda=disabled
+      - -Dcplayer=true
+      - -Dcplugins=enabled
+      - -Dcuda-hwaccel=enabled
+      - -Dcuda-interop=enabled
+      - -Ddmabuf-wayland=enabled
+      - -Ddrm=enabled
+      - -Ddvbin=disabled
+      - -Ddvdnav=disabled
+      - -Degl-drm=enabled
+      - -Degl-wayland=enabled
+      - -Degl-x11=enabled
+      - -Degl=enabled
+      - -Dgbm=enabled
+      - -Dgl-x11=enabled
+      - -Dgl=enabled
+      - -Diconv=enabled
+      - -Djack=enabled
+      - -Djavascript=enabled
+      - -Djpeg=enabled
+      - -Dlcms2=enabled
+      - -Dlibarchive=enabled
+      - -Dlibavdevice=enabled
+      - -Dlibbluray=disabled
+      - -Dlibmpv=true
+      - -Dlua=enabled
+      - -Dopenal=enabled
+      - -Dpipewire=enabled
+      - -Dplain-gl=enabled
+      - -Dpulse=enabled
+      - -Drubberband=enabled
+      - -Dsdl2-audio=enabled
+      - -Dsdl2-gamepad=enabled
+      - -Dsdl2-video=enabled
+      - -Dsdl2=enabled
+      - -Duchardet=enabled
+      - -Dvaapi-drm=enabled
+      - -Dvaapi-wayland=enabled
+      - -Dvaapi-x11=enabled
+      - -Dvaapi=enabled
+      - -Dvapoursynth=enabled
+      - -Dvdpau-gl-x11=enabled
+      - -Dvdpau=enabled
+      - -Dvector=enabled
+      - -Dvulkan=enabled
+      - -Dwayland=enabled
+      - -Dwerror=false
+      - -Dx11=enabled
+      - -Dxv=enabled
+      - -Dzimg=enabled
+      - -Dzlib=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -492,12 +492,12 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/ed/ed-1.21.1.tar.lz
+        url: https://ftp.gnu.org/gnu/ed/ed-1.22.tar.lz
         mirror-urls:
           - https://mirrors.kernel.org/gnu/ed/ed-1.20.1.tar.lz
           - https://mirrors.ocf.berkeley.edu/gnu/ed/ed-1.20.1.tar.lz
           - https://ftpmirror.gnu.org/gnu/ed/ed-1.20.1.tar.lz
-        sha256: d6d0c7192b02b0519c902a93719053e865ade5a784a3b327d93d888457b23c4b
+        sha256: 7eb22c30a99dcdb50a8630ef7ff3e4642491ac4f8cd1aa9f3182264df4f4ad08
         x-checker-data:
           type: html
           url: https://ftp.gnu.org/gnu/ed/
@@ -634,8 +634,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/84/ae/320161bd181fc06471eed047ecce67b693fd7515b16d495d8932db763426/certifi-2025.6.15-py3-none-any.whl
-        sha256: 2e0c7ce7cb5d8f8634ca55d2ba7e6ec2689a2fd6537d8dec1296a477a4910057
+          https://files.pythonhosted.org/packages/e5/48/1549795ba7742c948d2ad169c1c8cdbae65bc450d6cd753d124b17c8cd32/certifi-2025.8.3-py3-none-any.whl
+        sha256: f6c12493cfb1b06ba2ff328595af9350c65d6644968e5d3a2ffd78699af217a5
         x-checker-data:
           type: pypi
           name: certifi
@@ -750,8 +750,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/69/e0/552843e0d356fbb5256d21449fa957fa4eff3bbc135a74a691ee70c7c5da/typing_extensions-4.14.0-py3-none-any.whl
-        sha256: a1514509136dd0b477638fc68d6a91497af5076466ad0fa6c338e44e359944af
+          https://files.pythonhosted.org/packages/b5/00/d631e67a838026495268c2f6884f3711a15a9a2a96cd244fdaea53b823fb/typing_extensions-4.14.1-py3-none-any.whl
+        sha256: d1e1e3b58374dc93031d6eda2420a48ea44a36c2b4766a4fdeb3710755731d76
         x-checker-data:
           type: pypi
           name: typing-extensions
