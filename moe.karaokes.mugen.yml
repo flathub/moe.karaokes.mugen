@@ -194,8 +194,8 @@ modules:
       - --with-pic
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-11.tar.gz
-        sha256: 968047363963bf84917543acb77a869abc2f72e8d9a4e5f62380879c4fd925a4
+        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-13.tar.gz
+        sha256: 3617bffe497690ffe5b731227d026db1150e138ddb129481a1e202442e558512
         x-checker-data:
           type: anitya
           project-id: 1372
@@ -234,8 +234,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/ccxvii/mujs.git
-        tag: 1.3.6
-        commit: cc569c5fa9a7a2498177693b5617605c2ff5b260
+        tag: 1.3.8
+        commit: 307f18c4216420f2f56e22d8e7040baa39a6304a
         x-checker-data:
           type: git
           url: https://codeberg.org/api/v1/repos/ccxvii/mujs/tags
@@ -504,12 +504,12 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/ed/ed-1.21.1.tar.lz
+        url: https://ftp.gnu.org/gnu/ed/ed-1.22.4.tar.lz
         mirror-urls:
           - https://mirrors.kernel.org/gnu/ed/ed-1.20.1.tar.lz
           - https://mirrors.ocf.berkeley.edu/gnu/ed/ed-1.20.1.tar.lz
           - https://ftpmirror.gnu.org/gnu/ed/ed-1.20.1.tar.lz
-        sha256: d6d0c7192b02b0519c902a93719053e865ade5a784a3b327d93d888457b23c4b
+        sha256: 987a1ebbbad3fcf63a1ffa9e29b3fa7de065150d16319d0a49dd8b57f81d3e9c
         x-checker-data:
           type: html
           url: https://ftp.gnu.org/gnu/ed/
@@ -576,8 +576,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/48/f3/b67d6ea49ca9154453b6d70b34ea22f3996b9fa55da105a79d8732227adc/soupsieve-2.8.1-py3-none-any.whl
-        sha256: a11fe2a6f3d76ab3cf2de04eb339c1be5b506a8a47f2ceb6d139803177f85434
+          https://files.pythonhosted.org/packages/a6/9a/b4450ccce353e2430621b3bb571899ffe1033d5cd72c9e065110f95b1a63/soupsieve-2.8.2-py3-none-any.whl
+        sha256: 0f4c2f6b5a5fb97a641cf69c0bd163670a0e45e6d6c01a2107f93a6a6f93c51a
         x-checker-data:
           type: pypi
           name: soupsieve
@@ -654,8 +654,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/70/7d/9bc192684cea499815ff478dfcdc13835ddf401365057044fb721ec6bddb/certifi-2025.11.12-py3-none-any.whl
-        sha256: 97de8790030bbd5c2d96b7ec782fc2f7820ef8dba6db909ccf95449f2d062d4b
+          https://files.pythonhosted.org/packages/e6/ad/3cc14f097111b4de0040c83a525973216457bbeeb63739ef1ed275c1c021/certifi-2026.1.4-py3-none-any.whl
+        sha256: 9943707519e4add1115f44c2bc244f782c0249876bf51b6599fee1ffbedd685c
         x-checker-data:
           type: pypi
           name: certifi
