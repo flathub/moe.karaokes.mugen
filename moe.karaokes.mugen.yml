@@ -31,6 +31,14 @@ cleanup:
   - '*.la'
   - '*.a'
 modules:
+  - name: git
+    buildsystem: simple
+    build-commands:
+      # Copy git from SDK
+      - mkdir ${FLATPAK_DEST}/libexec
+      - cp -av /usr/bin/git{,-cvsserver,-lfs,-receive-pack,-shell,-upload-archive,-upload-pack} ${FLATPAK_DEST}/bin
+      - cp -arv /usr/libexec/git-core ${FLATPAK_DEST}/libexec
+      - cp -arv /usr/share/git{-core,web} ${FLATPAK_DEST}/share
   - name: parse-yapp
     buildsystem: simple
     build-commands:
@@ -282,8 +290,6 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_STATIC=0
-      # TODO can be removed when updating to x265 > 4.1
-      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -296,11 +302,6 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
-
-      # fix cmake build issue
-      # https://bitbucket.org/multicoreware/x265_git/commits/b354c009a60bcd6d7fc04014e200a1ee9c45c167
-      - type: patch
-        path: patches/x265-cmake_policy.patch
   - name: libmysofa
     buildsystem: cmake
     config-opts:
@@ -405,11 +406,11 @@ modules:
       - type: archive
         # without the dest-filename, flatpak-builder throws an "Unknown archive format" error
         dest-filename: vapoursynth.tar.gz
-        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R77
-        sha256: c46af671f8a5018d419ae2e6a4f0b8448dbf56b071579572fb862099c06a76a8
+        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R73 # Lock at 73, starting from 74 the build system changed and needs different build step(s) with python
+        sha256: 9c02a68b29eb446b2d0b1be3d831420fdc2bd703aacccc468faef9f94e3bf85f
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/vapoursynth/vapoursynth/releases/latest
+          url: https://api.github.com/repos/vapoursynth/vapoursynth/releases/tags/R73
           version-query: .name
           timestamp-query: .published_at
           url-query: .tarball_url
@@ -878,7 +879,7 @@ modules:
       - mv src/patch /app/km/app/bin/patch
     sources:
       - type: git
-        url: https://git.savannah.gnu.org/git/patch.git
+        url: https://https.git.savannah.gnu.org/git/patch.git
         commit: 48ceda8200aaf30c3ce42c31cd70ff6087db2425
         tag: v2.8
   - name: postgres
@@ -909,6 +910,7 @@ modules:
         YARN_ENABLE_TELEMETRY: '0'
         YARN_ENABLE_NETWORK: '0'
         YARN_ENABLE_GLOBAL_CACHE: '0'
+    YARN_CACHE_FOLDER: /run/build/karaokemugen/flatpak-node/cache
     build-commands:
       - >-
         install -D sentry-cli-Linux-$(gcc -dumpmachine | awk -F- {'print $1'})
@@ -948,8 +950,7 @@ modules:
         /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
-        url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: bbc9cfb57012c9b79a1a3cecf214a194f7ac003e
+        url: https://gitlab.com/karaokemugen/code/karaokemugen-app.git
         tag: 9.0.41
       - generated-sources.json
       - type: script
