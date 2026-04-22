@@ -929,6 +929,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
+<<<<<<< improve-fedc
         commit: 27e4e5478d82ae5c3b7a395a65d122b26843d468
         tag: 9.0.30
         x-checker-data:
@@ -936,6 +937,10 @@ modules:
           is-main-source: true
           tag-pattern: "semantic"
 
+=======
+        commit: bbc9cfb57012c9b79a1a3cecf214a194f7ac003e
+        tag: 9.0.41
+>>>>>>> master
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
@@ -951,13 +956,13 @@ modules:
         path: moe.karaokes.mugen.desktop
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.1.0/sentry-cli-Linux-x86_64
-        sha256: 7fdf7be2875a6fdb7bc2a3802bf3276ed776a89b66fbb00f977bc73358c2bc3d
+          https://downloads.sentry-cdn.com/sentry-cli/3.3.3/sentry-cli-Linux-x86_64
+        sha256: 560ccecdf6e95ffa206eba4ea57ee33a03f8ad38bc80ae4567438c11613d3b46
         only-arches:
           - x86_64
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.1.0/sentry-cli-Linux-aarch64
-        sha256: 279c5db7601ecb028461a6c735926cf5616b192df42eb9e55d46cc300e5f5161
+          https://downloads.sentry-cdn.com/sentry-cli/3.3.3/sentry-cli-Linux-aarch64
+        sha256: 1951e009ddb6a0ae71449f2ec479a04a29178511f0f7f8a70640f57ff0705758
         only-arches:
           - aarch64
