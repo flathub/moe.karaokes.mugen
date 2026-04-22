@@ -929,18 +929,12 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-<<<<<<< improve-fedc
-        commit: 27e4e5478d82ae5c3b7a395a65d122b26843d468
-        tag: 9.0.30
+        tag: 9.0.41
+        commit: bbc9cfb57012c9b79a1a3cecf214a194f7ac003e
         x-checker-data:
           type: git
           is-main-source: true
           tag-pattern: "semantic"
-
-=======
-        commit: bbc9cfb57012c9b79a1a3cecf214a194f7ac003e
-        tag: 9.0.41
->>>>>>> master
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
