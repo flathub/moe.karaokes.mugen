@@ -193,8 +193,8 @@ modules:
       - --with-pic
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-21.tar.gz
-        sha256: 4ba5b81797910efa93e65fb5a02b496284b8069d64513c6d2687c80d180dd70f
+        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-17.tar.gz
+        sha256: 4ff65e73c3642481e9e3db0d80a646288a5be77e3372ba2ddc49d869657ca0c6
         x-checker-data:
           type: anitya
           project-id: 1372
@@ -239,6 +239,17 @@ modules:
           type: git
           url: https://codeberg.org/api/v1/repos/ccxvii/mujs/tags
           tag-pattern: ^([\d.]+)$
+      # The unicode character database files are downloaded in the makefile rules `UnicodeData.txt` and `SpecialCasing.txt`.
+      # This does not work with flatpak because there is no network access during the build step.
+      #
+      # TODO: check for updated urls when updating mujs
+      - type: file
+        url: https://www.unicode.org/Public/16.0.0/ucd/UnicodeData.txt
+        sha256: ff58e5823bd095166564a006e47d111130813dcf8bf234ef79fa51a870edb48f
+
+      - type: file
+        url: https://www.unicode.org/Public/16.0.0/ucd/SpecialCasing.txt
+        sha256: 8d5de354eef79f2395a54c9c7dcebbaf3d30fc962d0f85611ea97aa973a0c451
   - name: nv-codec-headers
     cleanup:
       - '*'
@@ -263,15 +274,41 @@ modules:
       - --enable-shared
     sources:
       - type: git
-        url: https://github.com/mirror/x264.git
-        commit: 31e19f92f00c7003fa115047ce50978bc98c3a0d
+        url: https://code.videolan.org/videolan/x264.git
+        commit: b35605ace3ddf7c1a5d67a2eb553f034aef41d55
+        # Every commit to the stable branch is considered a release
+        # https://code.videolan.org/videolan/x264/-/issues/35
+        x-checker-data:
+          type: json
+          url: https://code.videolan.org/api/v4/projects/536/repository/branches/stable
+          commit-query: .commit.id
+          version-query: .commit.short_id
+          timestamp-query: .commit.created_at
   - name: x265
     buildsystem: cmake
     subdir: source
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_STATIC=0
+      # TODO can be removed when updating to x265 > 4.1
       - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - /share/man
+    sources:
+      - type: git
+        url: https://bitbucket.org/multicoreware/x265_git.git
+        tag: '4.1'
+        commit: 1d117bed4747758b51bd2c124d738527e30392cb
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
+
+      # fix cmake build issue
+      # https://bitbucket.org/multicoreware/x265_git/commits/b354c009a60bcd6d7fc04014e200a1ee9c45c167
+      - type: patch
+        path: patches/x265-cmake_policy.patch
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -372,26 +409,29 @@ modules:
     sources:
       - type: archive
         archive-type: tar
-        url: >-
-          https://api.github.com/repos/libsixel/libsixel/tarball/refs/tags/v1.10.5
-        sha256: 402da9e24caea62fe1e4c5d6f9c9211141f7a5d8016e717527ecde10c5522344
+        url: https://api.github.com/repos/saitoha/libsixel/tarball/v1.8.7
+        sha256: 9906a48c1c4a0fa3cff7842edc87bfc7f1a5811abb0ce59ad9d9f8c2446ffb73
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/libsixel/libsixel/tags
-          url-query: .[0].tarball_url
-          version-query: .[0].name
+          url: https://api.github.com/repos/saitoha/libsixel/releases/latest
+          url-query: .tarball_url
+          version-query: .tag_name | sub("^v"; "")
+          timestamp-query: .published_at
   - name: vapoursynth
     config-opts:
       - --with-python-prefix=${FLATPAK_DEST}
     sources:
       - type: archive
-        url: https://github.com/vapoursynth/vapoursynth/archive/72.tar.gz
-        sha256: f8fcc5e2e9d2195454310e3356ea13e5334125891e452cc6543e985f28cacd22
+        # without the dest-filename, flatpak-builder throws an "Unknown archive format" error
+        dest-filename: vapoursynth.tar.gz
+        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R73
+        sha256: 9c02a68b29eb446b2d0b1be3d831420fdc2bd703aacccc468faef9f94e3bf85f
         x-checker-data:
-          type: anitya
-          project-id: 15982
-          stable-only: true
-          url-template: https://github.com/vapoursynth/vapoursynth/archive/$version.tar.gz
+          type: json
+          url: https://api.github.com/repos/vapoursynth/vapoursynth/releases/latest
+          version-query: .name
+          timestamp-query: .published_at
+          url-query: .tarball_url
   - name: libplacebo
     buildsystem: meson
     config-opts:
@@ -403,10 +443,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/haasn/libplacebo.git
-        tag: v7.351.0
-        commit: 3188549fba13bbdf3a5a98de2a38c2e71f04e21e
-      - type: patch
-        path: patches/libplacebo-vulkan-utils_gen-python.patch
+        #mirror-urls:
+        #  - https://code.videolan.org/videolan/libplacebo.git
+        tag: v7.360.1
+        commit: cee9b076f2c63104ccfd497fa79c39a867293ec4
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
   - name: hwdata
     buildsystem: autotools
     sources:
@@ -549,13 +592,9 @@ modules:
       - pip3 install --prefix=/app urllib3*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/33/cf/8435d5a7159e2a9c83a95896ed596f68cf798005fe107cc655b5c5c14704/urllib3-1.26.20-py2.py3-none-any.whl
-        sha256: 0ed14ccfbf1c30a9072c7ca157e4319b70d65f623e91e7b32fadb2853431016e
+        url: https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl
+        sha256: bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4
         x-checker-data:
-          versions:
-            '>=': 1.21.1
-            <: '1.27'
           type: pypi
           name: urllib3
           packagetype: bdist_wheel
@@ -875,8 +914,8 @@ modules:
     sources:
       - type: git
         url: https://git.postgresql.org/git/postgresql.git
-        commit: 4b324845ba5d24682b9b3708a769f00d160afbd7
-        tag: REL_18_1
+        commit: 62d6c7d3df6287f1bd83199c1a746e50d31571a0
+        tag: REL_18_3
   - name: karaokemugen
     buildsystem: simple
     build-options:
@@ -946,13 +985,13 @@ modules:
         path: moe.karaokes.mugen.desktop
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.3.3/sentry-cli-Linux-x86_64
-        sha256: 560ccecdf6e95ffa206eba4ea57ee33a03f8ad38bc80ae4567438c11613d3b46
+          https://downloads.sentry-cdn.com/sentry-cli/3.3.5/sentry-cli-Linux-x86_64
+        sha256: 81bda3da764c957cdc9ddc6d368f9a2e1e4a1e385b6272180a0373830acaecdb
         only-arches:
           - x86_64
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.3.3/sentry-cli-Linux-aarch64
-        sha256: 1951e009ddb6a0ae71449f2ec479a04a29178511f0f7f8a70640f57ff0705758
+          https://downloads.sentry-cdn.com/sentry-cli/3.3.5/sentry-cli-Linux-aarch64
+        sha256: a7ed9089f28466ee830219100f70b6f13e9a7a7d03d54f9840e9b84436468661
         only-arches:
           - aarch64
