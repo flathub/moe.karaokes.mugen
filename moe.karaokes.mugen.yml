@@ -949,8 +949,12 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: bbc9cfb57012c9b79a1a3cecf214a194f7ac003e
         tag: 9.0.41
+        commit: bbc9cfb57012c9b79a1a3cecf214a194f7ac003e
+        x-checker-data:
+          type: git
+          is-main-source: true
+          tag-pattern: "semantic"
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
