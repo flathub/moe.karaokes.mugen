@@ -184,8 +184,8 @@ modules:
       - --with-pic
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-17.tar.gz
-        sha256: 4ff65e73c3642481e9e3db0d80a646288a5be77e3372ba2ddc49d869657ca0c6
+        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-21.tar.gz
+        sha256: 4ba5b81797910efa93e65fb5a02b496284b8069d64513c6d2687c80d180dd70f
         x-checker-data:
           type: anitya
           project-id: 1372
@@ -291,8 +291,8 @@ modules:
     sources:
       - type: git
         url: https://bitbucket.org/multicoreware/x265_git.git
-        tag: '4.1'
-        commit: 1d117bed4747758b51bd2c124d738527e30392cb
+        tag: '4.2'
+        commit: e444744c03978c1fb4e037168967020cf2648427
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -377,8 +377,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/FFmpeg/FFmpeg.git
-        commit: 9047fa1b084f76b1b4d065af2d743df1b40dfb56
-        tag: n8.1
+        commit: 239f2c733de417201d7ad3b3b8b0d9b63285b2b1
+        tag: n8.1.1
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]{3,7})$
@@ -390,8 +390,8 @@ modules:
     sources:
       - type: archive
         archive-type: tar
-        url: https://api.github.com/repos/saitoha/libsixel/tarball/v1.8.7
-        sha256: 9906a48c1c4a0fa3cff7842edc87bfc7f1a5811abb0ce59ad9d9f8c2446ffb73
+        url: https://api.github.com/repos/saitoha/libsixel/tarball/v1.8.7-r2
+        sha256: 6242586083cc37d898825c25dabd8c7c0abb62fa29ae54edacf2b5eba4db1167
         x-checker-data:
           type: json
           url: https://api.github.com/repos/saitoha/libsixel/releases/latest
@@ -405,8 +405,8 @@ modules:
       - type: archive
         # without the dest-filename, flatpak-builder throws an "Unknown archive format" error
         dest-filename: vapoursynth.tar.gz
-        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R73
-        sha256: 9c02a68b29eb446b2d0b1be3d831420fdc2bd703aacccc468faef9f94e3bf85f
+        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R75
+        sha256: be5644c22212d391fc1ded371ed1506b9e7c3ff21fbd51bd734f7e069f29c382
         x-checker-data:
           type: json
           url: https://api.github.com/repos/vapoursynth/vapoursynth/releases/latest
@@ -716,8 +716,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/10/99/781fe0c827be2742bcc775efefccb3b048a3a9c6ce9aec0cbf4a101677e5/pytz-2026.1.post1-py2.py3-none-any.whl
-        sha256: f2fd16142fda348286a75e1a524be810bb05d444e5a081f37f7affc635035f7a
+          https://files.pythonhosted.org/packages/ec/dd/96da98f892250475bdf2328112d7468abdd4acc7b902b6af23f4ed958ea0/pytz-2026.2-py2.py3-none-any.whl
+        sha256: 04156e608bee23d3792fd45c94ae47fae1036688e75032eea2e3bf0323d1f126
         x-checker-data:
           type: pypi
           name: pytz
