@@ -9,24 +9,24 @@ sdk-extensions:
 command: km-wrapper
 separate-locales: false
 finish-args:
-  - --filesystem=~/KaraokeMugen:create
-  - --filesystem=xdg-run/app/com.discordapp.Discord:create
-  - --filesystem=xdg-run/app/com.discordapp.DiscordCanary:create
-  - --share=ipc
-  - --socket=fallback-x11
-  - --socket=pulseaudio
-  - --socket=wayland
-  - --device=all
-  - --own-name=org.mpris.MediaPlayer2.KaraokeMugen.*
-  - --talk-name=org.gnome.SessionManager
-  - --share=network
-  - --system-talk-name=org.freedesktop.UPower
-  - --talk-name=com.canonical.AppMenu.Registrar
-  - --talk-name=com.canonical.dbusmenu
-  - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.kde.StatusNotifierWatcher
-  - --env=LC_NUMERIC=C
-  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+  - '--filesystem=~/KaraokeMugen:create'
+  - '--filesystem=xdg-run/app/com.discordapp.Discord:create'
+  - '--filesystem=xdg-run/app/com.discordapp.DiscordCanary:create'
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=pulseaudio'
+  - '--socket=wayland'
+  - '--device=all'
+  - '--own-name=org.mpris.MediaPlayer2.KaraokeMugen.*'
+  - '--talk-name=org.gnome.SessionManager'
+  - '--share=network'
+  - '--system-talk-name=org.freedesktop.UPower'
+  - '--talk-name=com.canonical.AppMenu.Registrar'
+  - '--talk-name=com.canonical.dbusmenu'
+  - '--talk-name=org.freedesktop.Notifications'
+  - '--talk-name=org.kde.StatusNotifierWatcher'
+  - '--env=LC_NUMERIC=C'
+  - '--env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons'
 cleanup:
   - '*.la'
   - '*.a'
@@ -90,9 +90,9 @@ modules:
   - name: uchardet
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_STATIC=0
-      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      - '-DCMAKE_BUILD_TYPE=Release'
+      - '-DBUILD_STATIC=0'
+      - '-DCMAKE_POLICY_VERSION_MINIMUM=3.5'
     cleanup:
       - /bin
       - /include
@@ -114,10 +114,10 @@ modules:
       - /include
       - /lib/pkgconfig
     config-opts:
-      - --disable-static
-      - --enable-asm
-      - --enable-harfbuzz
-      - --enable-fontconfig
+      - '--disable-static'
+      - '--enable-asm'
+      - '--enable-harfbuzz'
+      - '--enable-fontconfig'
     sources:
       - type: git
         url: https://github.com/libass/libass.git
@@ -128,7 +128,7 @@ modules:
           tag-pattern: ^(\d\.\d{1,3}\.\d{1,2})$
   - name: zimg
     config-opts:
-      - --disable-static
+      - '--disable-static'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -146,12 +146,12 @@ modules:
           timestamp-query: .published_at
   - name: Tesseract
     config-opts:
-      - --disable-static
+      - '--disable-static'
     modules:
       - name: Leptonica
         config-opts:
-          - --disable-static
-          - --with-pic
+          - '--disable-static'
+          - '--with-pic'
         sources:
           - type: archive
             url: http://www.leptonica.org/source/leptonica-1.87.0.tar.gz
@@ -178,10 +178,10 @@ modules:
       - /bin
   - name: ImageMagick
     config-opts:
-      - --disable-static
-      - --disable-docs
-      - --with-hdri
-      - --with-pic
+      - '--disable-static'
+      - '--disable-docs'
+      - '--with-hdri'
+      - '--with-pic'
     sources:
       - type: archive
         url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-17.tar.gz
@@ -230,14 +230,9 @@ modules:
           type: git
           url: https://codeberg.org/api/v1/repos/ccxvii/mujs/tags
           tag-pattern: ^([\d.]+)$
-      # The unicode character database files are downloaded in the makefile rules `UnicodeData.txt` and `SpecialCasing.txt`.
-      # This does not work with flatpak because there is no network access during the build step.
-      #
-      # TODO: check for updated urls when updating mujs
       - type: file
         url: https://www.unicode.org/Public/16.0.0/ucd/UnicodeData.txt
         sha256: ff58e5823bd095166564a006e47d111130813dcf8bf234ef79fa51a870edb48f
-
       - type: file
         url: https://www.unicode.org/Public/16.0.0/ucd/SpecialCasing.txt
         sha256: 8d5de354eef79f2395a54c9c7dcebbaf3d30fc962d0f85611ea97aa973a0c451
@@ -261,29 +256,19 @@ modules:
       - /lib/pkgconfig
       - /share/man
     config-opts:
-      - --disable-cli
-      - --enable-shared
+      - '--disable-cli'
+      - '--enable-shared'
     sources:
       - type: git
         url: https://code.videolan.org/videolan/x264.git
         commit: b35605ace3ddf7c1a5d67a2eb553f034aef41d55
-        # Every commit to the stable branch is considered a release
-        # https://code.videolan.org/videolan/x264/-/issues/35
-        # the check is disabled to satisfy the pipeline
-        # x-checker-data:
-        #   type: json
-        #   url: https://code.videolan.org/api/v4/projects/536/repository/branches/stable
-        #   commit-query: .commit.id
-        #   version-query: .commit.short_id
-        #   timestamp-query: .commit.created_at
   - name: x265
     buildsystem: cmake
     subdir: source
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_STATIC=0
-      # TODO can be removed when updating to x265 > 4.1
-      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      - '-DCMAKE_BUILD_TYPE=Release'
+      - '-DBUILD_STATIC=0'
+      - '-DCMAKE_POLICY_VERSION_MINIMUM=3.5'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -296,15 +281,12 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
-
-      # fix cmake build issue
-      # https://bitbucket.org/multicoreware/x265_git/commits/b354c009a60bcd6d7fc04014e200a1ee9c45c167
       - type: patch
         path: patches/x265-cmake_policy.patch
   - name: libmysofa
     buildsystem: cmake
     config-opts:
-      - -DBUILD_TESTS=OFF
+      - '-DBUILD_TESTS=OFF'
     sources:
       - type: git
         commit: 7a0c07111a3d7230ec534e08925c24a7525f33c0
@@ -316,7 +298,7 @@ modules:
   - name: libbs2b
     buildsystem: autotools
     config-opts:
-      - --disable-static
+      - '--disable-static'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -342,33 +324,33 @@ modules:
       - /lib/pkgconfig
       - /share/ffmpeg/examples
     config-opts:
-      - --disable-debug
-      - --disable-doc
-      - --disable-static
-      - --enable-encoder=png
-      - --enable-gnutls
-      - --enable-gpl
-      - --enable-shared
-      - --enable-version3
-      - --enable-libaom
-      - --enable-libass
-      - --enable-libbs2b
-      - --enable-libdav1d
-      - --enable-libfreetype
-      - --enable-libmp3lame
-      - --enable-libopus
-      - --enable-libjxl
-      - --enable-libmysofa
-      - --enable-libtheora
-      - --enable-libvorbis
-      - --enable-libvpx
-      - --enable-libx264
-      - --enable-libx265
-      - --enable-libwebp
-      - --enable-libxml2
-      - --enable-vulkan
-      - --enable-libdrm
-      - --enable-vaapi
+      - '--disable-debug'
+      - '--disable-doc'
+      - '--disable-static'
+      - '--enable-encoder=png'
+      - '--enable-gnutls'
+      - '--enable-gpl'
+      - '--enable-shared'
+      - '--enable-version3'
+      - '--enable-libaom'
+      - '--enable-libass'
+      - '--enable-libbs2b'
+      - '--enable-libdav1d'
+      - '--enable-libfreetype'
+      - '--enable-libmp3lame'
+      - '--enable-libopus'
+      - '--enable-libjxl'
+      - '--enable-libmysofa'
+      - '--enable-libtheora'
+      - '--enable-libvorbis'
+      - '--enable-libvpx'
+      - '--enable-libx264'
+      - '--enable-libx265'
+      - '--enable-libwebp'
+      - '--enable-libxml2'
+      - '--enable-vulkan'
+      - '--enable-libdrm'
+      - '--enable-vaapi'
     post-install:
       - install -d /app/km
       - install -d /app/km/app/
@@ -400,10 +382,9 @@ modules:
           timestamp-query: .published_at
   - name: vapoursynth
     config-opts:
-      - --with-python-prefix=${FLATPAK_DEST}
+      - '--with-python-prefix=${FLATPAK_DEST}'
     sources:
       - type: archive
-        # without the dest-filename, flatpak-builder throws an "Unknown archive format" error
         dest-filename: vapoursynth.tar.gz
         url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R73
         sha256: 9c02a68b29eb446b2d0b1be3d831420fdc2bd703aacccc468faef9f94e3bf85f
@@ -416,16 +397,14 @@ modules:
   - name: libplacebo
     buildsystem: meson
     config-opts:
-      - -Dvulkan=enabled
-      - -Dshaderc=enabled
+      - '-Dvulkan=enabled'
+      - '-Dshaderc=enabled'
     cleanup:
       - /include
       - /lib/pkgconfig
     sources:
       - type: git
         url: https://github.com/haasn/libplacebo.git
-        #mirror-urls:
-        #  - https://code.videolan.org/videolan/libplacebo.git
         tag: v7.360.1
         commit: cee9b076f2c63104ccfd497fa79c39a867293ec4
         x-checker-data:
@@ -447,55 +426,55 @@ modules:
   - name: mpv
     buildsystem: meson
     config-opts:
-      - -Dalsa=enabled
-      - -Dbuild-date=false
-      - -Dcdda=disabled
-      - -Dcplayer=true
-      - -Dcplugins=enabled
-      - -Dcuda-hwaccel=enabled
-      - -Dcuda-interop=enabled
-      - -Ddmabuf-wayland=enabled
-      - -Ddrm=enabled
-      - -Ddvbin=disabled
-      - -Ddvdnav=disabled
-      - -Degl-drm=enabled
-      - -Degl-wayland=enabled
-      - -Degl-x11=enabled
-      - -Degl=enabled
-      - -Dgbm=enabled
-      - -Dgl-x11=enabled
-      - -Dgl=enabled
-      - -Diconv=enabled
-      - -Djack=enabled
-      - -Djavascript=enabled
-      - -Djpeg=enabled
-      - -Dlcms2=enabled
-      - -Dlibarchive=enabled
-      - -Dlibavdevice=enabled
-      - -Dlibbluray=disabled
-      - -Dlibmpv=true
-      - -Dlua=enabled
-      - -Dopenal=enabled
-      - -Dpipewire=enabled
-      - -Dplain-gl=enabled
-      - -Dpulse=enabled
-      - -Drubberband=enabled
-      - -Duchardet=enabled
-      - -Dvaapi-drm=enabled
-      - -Dvaapi-wayland=enabled
-      - -Dvaapi-x11=enabled
-      - -Dvaapi=enabled
-      - -Dvapoursynth=enabled
-      - -Dvdpau-gl-x11=enabled
-      - -Dvdpau=enabled
-      - -Dvector=enabled
-      - -Dvulkan=enabled
-      - -Dwayland=enabled
-      - -Dwerror=false
-      - -Dx11=enabled
-      - -Dxv=enabled
-      - -Dzimg=enabled
-      - -Dzlib=enabled
+      - '-Dalsa=enabled'
+      - '-Dbuild-date=false'
+      - '-Dcdda=disabled'
+      - '-Dcplayer=true'
+      - '-Dcplugins=enabled'
+      - '-Dcuda-hwaccel=enabled'
+      - '-Dcuda-interop=enabled'
+      - '-Ddmabuf-wayland=enabled'
+      - '-Ddrm=enabled'
+      - '-Ddvbin=disabled'
+      - '-Ddvdnav=disabled'
+      - '-Degl-drm=enabled'
+      - '-Degl-wayland=enabled'
+      - '-Degl-x11=enabled'
+      - '-Degl=enabled'
+      - '-Dgbm=enabled'
+      - '-Dgl-x11=enabled'
+      - '-Dgl=enabled'
+      - '-Diconv=enabled'
+      - '-Djack=enabled'
+      - '-Djavascript=enabled'
+      - '-Djpeg=enabled'
+      - '-Dlcms2=enabled'
+      - '-Dlibarchive=enabled'
+      - '-Dlibavdevice=enabled'
+      - '-Dlibbluray=disabled'
+      - '-Dlibmpv=true'
+      - '-Dlua=enabled'
+      - '-Dopenal=enabled'
+      - '-Dpipewire=enabled'
+      - '-Dplain-gl=enabled'
+      - '-Dpulse=enabled'
+      - '-Drubberband=enabled'
+      - '-Duchardet=enabled'
+      - '-Dvaapi-drm=enabled'
+      - '-Dvaapi-wayland=enabled'
+      - '-Dvaapi-x11=enabled'
+      - '-Dvaapi=enabled'
+      - '-Dvapoursynth=enabled'
+      - '-Dvdpau-gl-x11=enabled'
+      - '-Dvdpau=enabled'
+      - '-Dvector=enabled'
+      - '-Dvulkan=enabled'
+      - '-Dwayland=enabled'
+      - '-Dwerror=false'
+      - '-Dx11=enabled'
+      - '-Dxv=enabled'
+      - '-Dzimg=enabled'
+      - '-Dzlib=enabled'
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -573,7 +552,8 @@ modules:
       - pip3 install --prefix=/app urllib3*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl
+        url: >-
+          https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl
         sha256: bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4
         x-checker-data:
           type: pypi
@@ -949,8 +929,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: bbc9cfb57012c9b79a1a3cecf214a194f7ac003e
-        tag: 9.0.41
+        commit: d5472d4ff748612130aaf41b041398274056c278
+        tag: 9.0.52
       - generated-sources.json
       - type: script
         dest-filename: stub_sandbox
@@ -966,13 +946,13 @@ modules:
         path: moe.karaokes.mugen.desktop
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.3.5/sentry-cli-Linux-x86_64
-        sha256: 81bda3da764c957cdc9ddc6d368f9a2e1e4a1e385b6272180a0373830acaecdb
+          https://downloads.sentry-cdn.com/sentry-cli/3.4.0/sentry-cli-Linux-x86_64
+        sha256: 803556dd09de4fe54639c4d2e696315fd5a67dda3f8fe8dfe52a942ead5a2ae1
         only-arches:
           - x86_64
       - type: file
         url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.3.5/sentry-cli-Linux-aarch64
-        sha256: a7ed9089f28466ee830219100f70b6f13e9a7a7d03d54f9840e9b84436468661
+          https://downloads.sentry-cdn.com/sentry-cli/3.4.0/sentry-cli-Linux-aarch64
+        sha256: 1273fe22639e394e0c8d2bd097da13b25139e75e977c5ce44c6f54130664ea45
         only-arches:
           - aarch64
