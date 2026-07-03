@@ -121,8 +121,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/libass/libass.git
-        tag: 0.17.4
-        commit: bbb3c7f1570a4a021e52683f3fbdf74fe492ae84
+        tag: 0.17.5
+        commit: 4a05d8127f525943ebf45fdc6497c9e665947f0d
         x-checker-data:
           type: git
           tag-pattern: ^(\d\.\d{1,3}\.\d{1,2})$
@@ -184,8 +184,8 @@ modules:
       - --with-pic
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-17.tar.gz
-        sha256: 4ff65e73c3642481e9e3db0d80a646288a5be77e3372ba2ddc49d869657ca0c6
+        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-26.tar.gz
+        sha256: d63594e334e1c410f600fb9370d78d49e4dc6f315722ca4ba083e864e5c354cb
         x-checker-data:
           type: anitya
           project-id: 1372
@@ -291,8 +291,8 @@ modules:
     sources:
       - type: git
         url: https://bitbucket.org/multicoreware/x265_git.git
-        tag: '4.1'
-        commit: 1d117bed4747758b51bd2c124d738527e30392cb
+        tag: '4.2'
+        commit: e444744c03978c1fb4e037168967020cf2648427
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -377,8 +377,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/FFmpeg/FFmpeg.git
-        commit: 9047fa1b084f76b1b4d065af2d743df1b40dfb56
-        tag: n8.1
+        commit: 38b88335f99e76ed89ff3c93f877fdefce736c13
+        tag: n8.1.2
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]{3,7})$
@@ -390,8 +390,8 @@ modules:
     sources:
       - type: archive
         archive-type: tar
-        url: https://api.github.com/repos/saitoha/libsixel/tarball/v1.8.7
-        sha256: 9906a48c1c4a0fa3cff7842edc87bfc7f1a5811abb0ce59ad9d9f8c2446ffb73
+        url: https://api.github.com/repos/saitoha/libsixel/tarball/v1.8.7-r2
+        sha256: 6242586083cc37d898825c25dabd8c7c0abb62fa29ae54edacf2b5eba4db1167
         x-checker-data:
           type: json
           url: https://api.github.com/repos/saitoha/libsixel/releases/latest
@@ -405,8 +405,8 @@ modules:
       - type: archive
         # without the dest-filename, flatpak-builder throws an "Unknown archive format" error
         dest-filename: vapoursynth.tar.gz
-        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R73
-        sha256: 9c02a68b29eb446b2d0b1be3d831420fdc2bd703aacccc468faef9f94e3bf85f
+        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R77
+        sha256: c46af671f8a5018d419ae2e6a4f0b8448dbf56b071579572fb862099c06a76a8
         x-checker-data:
           type: json
           url: https://api.github.com/repos/vapoursynth/vapoursynth/releases/latest
@@ -573,8 +573,8 @@ modules:
       - pip3 install --prefix=/app urllib3*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl
-        sha256: bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4
+        url: https://files.pythonhosted.org/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl
+        sha256: 9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897
         x-checker-data:
           type: pypi
           name: urllib3
@@ -586,8 +586,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/46/2c/1462b1d0a634697ae9e55b3cecdcb64788e8b7d63f54d923fcd0bb140aed/soupsieve-2.8.3-py3-none-any.whl
-        sha256: ed64f2ba4eebeab06cc4962affce381647455978ffc1e36bb79a545b91f45a95
+          https://files.pythonhosted.org/packages/5e/f5/0c41cb68dcae6b7de4fac4188a3a9589e21fb31df21ea3a2e888db95e6c9/soupsieve-2.8.4-py3-none-any.whl
+        sha256: e7e6b0769c8f51ed59acab6e994b00621096cfb1c640a7509295987388fbaf65
         x-checker-data:
           type: pypi
           name: soupsieve
@@ -599,8 +599,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/84/4d/df073d593f7e7e4a5a7e19148b2e9b4ae63b4ddcbb863f1e7bb2b6f19c62/rebulk-3.2.0-py3-none-any.whl
-        sha256: 6bc31ae4b37200623c5827d2f539f9ec3e52b50431322dad8154642a39b0a53e
+          https://files.pythonhosted.org/packages/01/44/6a16b13cb50ca25cc88928bf85adef1227d21add9c4cd830958d0124d48b/rebulk-6.0.1-py3-none-any.whl
+        sha256: fe67fd0af60962c7f3957fa01ef0039c43631c09146228698ee22e20ac33907e
         x-checker-data:
           type: pypi
           name: rebulk
@@ -625,8 +625,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/5d/13/ad7d7ca3808a898b4612b6fe93cde56b53f3034dcde235acb1f0e1df24c6/idna-3.13-py3-none-any.whl
-        sha256: 892ea0cde124a99ce773decba204c5552b69c3c67ffd5f232eb7696135bc8bb3
+          https://files.pythonhosted.org/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl
+        sha256: 7f952cbe720b688055e3f87de14f5c3e5fdaa8bc3928985c4077ca689de849a2
         x-checker-data:
           type: pypi
           name: idna
@@ -638,8 +638,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/4e/8c/f3147f5c4b73e7550fe5f9352eaa956ae838d5c51eb58e7a25b9f3e2643b/decorator-5.2.1-py3-none-any.whl
-        sha256: d316bb415a2d9e2d2b3abcc4084c6502fc09240e292cd76a76afc106a1c8e04a
+          https://files.pythonhosted.org/packages/05/7f/798705f5296a58ca505d600456748d1be48078eac8a7050d8a98bc9edb89/decorator-5.3.1-py3-none-any.whl
+        sha256: f47fe6fdbd2edd623ecfe36875d37aba411624e2670dd395dddae1358689bb3c
         x-checker-data:
           type: pypi
           name: decorator
@@ -664,8 +664,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/22/30/7cd8fdcdfbc5b869528b079bfb76dcdf6056b1a2097a662e5e8c04f42965/certifi-2026.4.22-py3-none-any.whl
-        sha256: 3cb2210c8f88ba2318d29b0388d1023c8492ff72ecdde4ebdaddbb13a31b1c4a
+          https://files.pythonhosted.org/packages/ef/2f/c5464532e965badff2f4c4c1a3a83f5697f0d7c407ed0cda44aaa99bb451/certifi-2026.6.17-py3-none-any.whl
+        sha256: 2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db
         x-checker-data:
           type: pypi
           name: certifi
@@ -677,8 +677,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/69/06/36d260a695f383345ab5bbc3fd447249594ae2fa8dfd19c533d5ae23f46b/stevedore-5.7.0-py3-none-any.whl
-        sha256: fd25efbb32f1abb4c9e502f385f0018632baac11f9ee5d1b70f88cc5e22ad4ed
+          https://files.pythonhosted.org/packages/62/8d/008761f6e1000600e5303db30d05724bdcf3d2d186cbb59fac79b52e39ed/stevedore-5.9.0-py3-none-any.whl
+        sha256: e520945d4c257700eddc1eb1d79df04b2ea578eef185e0e3fa5b442fc848d3f7
         x-checker-data:
           type: pypi
           name: stevedore
@@ -690,8 +690,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/d7/8e/7540e8a2036f79a125c1d2ebadf69ed7901608859186c856fa0388ef4197/requests-2.33.1-py3-none-any.whl
-        sha256: 4e6d1ef462f3626a1f0a0a9c42dd93c63bad33f9f1c1937509b8c5c8718ab56a
+          https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl
+        sha256: 2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0
         x-checker-data:
           type: pypi
           name: requests
@@ -716,8 +716,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/10/99/781fe0c827be2742bcc775efefccb3b048a3a9c6ce9aec0cbf4a101677e5/pytz-2026.1.post1-py2.py3-none-any.whl
-        sha256: f2fd16142fda348286a75e1a524be810bb05d444e5a081f37f7affc635035f7a
+          https://files.pythonhosted.org/packages/ec/dd/96da98f892250475bdf2328112d7468abdd4acc7b902b6af23f4ed958ea0/pytz-2026.2-py2.py3-none-any.whl
+        sha256: 04156e608bee23d3792fd45c94ae47fae1036688e75032eea2e3bf0323d1f126
         x-checker-data:
           type: pypi
           name: pytz
@@ -754,8 +754,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/b8/9b/924a8f9709c3143d4c9a301a88042cbce37e09789378217284b19d4f8132/guessit-3.8.0-py3-none-any.whl
-        sha256: eb5747b1d0fbca926562c1e5894dbc3f6507c35e8c0bd9e38148401cd9579d83
+          https://files.pythonhosted.org/packages/d1/46/4817d8289276f0660a291a6f00f90f61e0a44677545027b8869b62faea51/guessit-4.0.2-py3-none-any.whl
+        sha256: fa27dbd5b000ab8ea6722f256cb91dc553e57da3cdf2c496b98ec01240fcd406
         x-checker-data:
           type: pypi
           name: guessit
@@ -780,8 +780,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/18/67/36e9267722cc04a6b9f15c7f3441c2363321a3ea07da7ae0c0707beb2a9c/typing_extensions-4.15.0-py3-none-any.whl
-        sha256: f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548
+          https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+        sha256: 481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8
         x-checker-data:
           type: pypi
           name: typing-extensions
@@ -806,8 +806,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/ae/44/c1221527f6a71a01ec6fbad7fa78f1d50dfa02217385cf0fa3eec7087d59/click-8.3.3-py3-none-any.whl
-        sha256: a2bf429bb3033c89fa4936ffb35d5cb471e3719e1f3c8a7c3fff0b8314305613
+          https://files.pythonhosted.org/packages/fb/e2/79c688af8b210d232694e31e59da9f6ec747bae31c3f5946e4e9b98860d5/click-8.4.2-py3-none-any.whl
+        sha256: e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76
         x-checker-data:
           type: pypi
           name: click
@@ -832,8 +832,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/1a/39/47f9197bdd44df24d67ac8893641e16f386c984a0619ef2ee4c51fbbc019/beautifulsoup4-4.14.3-py3-none-any.whl
-        sha256: 0918bfe44902e6ad8d57732ba310582e98da931428d231a5ecb9e7c703a735bb
+          https://files.pythonhosted.org/packages/88/c6/92fcd42f1ba33e1184263f25bfabf3d27c383410470f169e4b8163bf9c17/beautifulsoup4-4.15.0-py3-none-any.whl
+        sha256: d6f88de62e1d4e38ecb1077eb9724cd0eff29d2a08ca16a401e9b9e93f117cf9
         x-checker-data:
           type: pypi
           name: beautifulsoup4
