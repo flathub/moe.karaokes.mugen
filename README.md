@@ -9,6 +9,8 @@ python3 -m venv venv
 source venv/bin/activate
 pip install .
 
+cd ../..
+
 flatpak-node-generator yarn -r yarn.lock -R kmfrontend/yarn.lock -R yarn.lock 
 ```
 
