@@ -897,7 +897,7 @@ modules:
         YARN_ENABLE_TELEMETRY: '0'
         YARN_ENABLE_NETWORK: '0'
         YARN_ENABLE_GLOBAL_CACHE: '0'
-    YARN_CACHE_FOLDER: /run/build/karaokemugen/flatpak-node/cache
+        YARN_CACHE_FOLDER: /run/build/karaokemugen/flatpak-node/cache
     build-commands:
       - >-
         install -D sentry-cli-Linux-$(gcc -dumpmachine | awk -F- {'print $1'})
