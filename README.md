@@ -3,10 +3,10 @@
 ## Update generated-sources.json
 Updating the `generated-sources.json` file is normally necessary when upgrading karaokemugen-app to a newer release.
 
-Install a patched version of flatpak-node-generator in a python venv:
+Install flatpak-node-generator in a python venv:
 
 ```
-git clone -b yarn2 https://github.com/Dragicafit/flatpak-builder-tools/
+git clone https://github.com/flatpak/flatpak-builder-tools.git
 cd flatpak-builder-tools/node
 
 python3 -m venv venv
