@@ -892,7 +892,7 @@ modules:
       env:
         XDG_CACHE_HOME: /run/build/karaokemugen/flatpak-node/cache
         npm_config_nodedir: /usr/lib/sdk/node24
-        YARN_GLOBAL_FOLDER: /run/build/karaokemugen/flatpak-node/yarn-mirror/global
+        YARN_GLOBAL_FOLDER: /run/build/karaokemugen/flatpak-node/yarn-berry
         YARN_ENABLE_INLINE_BUILDS: '1'
         YARN_ENABLE_TELEMETRY: '0'
         YARN_ENABLE_NETWORK: '0'

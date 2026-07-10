@@ -6,7 +6,7 @@ Updating the `generated-sources.json` file is normally necessary when upgrading 
 Install a patched version of flatpak-node-generator in a python venv:
 
 ```
-git clone -b yarn2 https://github.com/Dragicafit/flatpak-builder-tools/
+git clone https://github.com/flatpak/flatpak-builder-tools
 cd flatpak-builder-tools/node
 
 python3 -m venv venv
@@ -23,6 +23,9 @@ flatpak-node-generator yarn -r yarn.lock -R kmfrontend/yarn.lock -R yarn.lock
 Copy the freshly generated `generated-sources.json` from the karaokemugen-app folder into this repository (overwriting the existing file)
 
 ## Build
+
+Make sure `flatpak` builder is installed and the repo is set up for the user `flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
+
 `flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir moe.karaokes.mugen.yml` 
 
 ## Troubleshoot
