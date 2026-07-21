@@ -258,8 +258,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/FFmpeg/nv-codec-headers.git
-        tag: n13.0.19.0
-        commit: e844e5b26f46bb77479f063029595293aa8f812d
+        tag: n13.1.15.0
+        commit: 0a6fba9a2820628b8103464f4c8753ee05838baa
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]+)$
@@ -299,8 +299,8 @@ modules:
       - -DBUILD_TESTS=OFF
     sources:
       - type: git
-        commit: 7a0c07111a3d7230ec534e08925c24a7525f33c0
-        tag: v1.3.4
+        commit: 6cc5b15a73e9bd97810d03767082edda7f315881
+        tag: v1.3.5
         url: https://github.com/hoene/libmysofa.git
         x-checker-data:
           type: git
@@ -575,8 +575,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/5e/f5/0c41cb68dcae6b7de4fac4188a3a9589e21fb31df21ea3a2e888db95e6c9/soupsieve-2.8.4-py3-none-any.whl
-        sha256: e7e6b0769c8f51ed59acab6e994b00621096cfb1c640a7509295987388fbaf65
+          https://files.pythonhosted.org/packages/7b/d6/3185ab5ad1280319b31986898f3206dd7227cd75e293d4dba2a5e6bf27a0/soupsieve-2.9-py3-none-any.whl
+        sha256: a2b2c76d67df2382d245409fd71e321a571717e58463efa32ace87dcadac2c12
         x-checker-data:
           type: pypi
           name: soupsieve
