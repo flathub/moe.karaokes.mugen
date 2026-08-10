@@ -907,7 +907,7 @@ modules:
         yarn plugin import
         $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
       - yarn convertToZip $(which yarn)
-      - yarn install
+      - SENTRYCLI_USE_LOCAL=1 yarn install
       - yarn remove corepack
       - yarn build
       - yarn installkmfrontend
