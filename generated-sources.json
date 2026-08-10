@@ -2607,6 +2607,69 @@
     },
     {
         "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli-darwin/-/cli-darwin-2.58.6.tgz",
+        "sha512": "b9d015bdcc9f35ad11fbde46bcfcfffb8dff3774c2d1360a76443b0fb8e13d2cdb70c73b9767f144d379c81dd4a420397d61675b8b6879aab00c185bfd68772c",
+        "dest-filename": "cli-darwin-QHNlbnRyeS9jbGktZGFyd2luQG5wbToyLjU4LjY=-10c0.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli-linux-arm/-/cli-linux-arm-2.58.6.tgz",
+        "sha512": "a43d0b02de4f714cc08a7070bc3a9cebac7dfb609a6c712fe3ceb23f48118d63bb49a91b6b199f56afc45ddf152eafd3ce2dfd2c0bb8db65182b59695b73082f",
+        "dest-filename": "cli-linux-arm-QHNlbnRyeS9jbGktbGludXgtYXJtQG5wbToyLjU4LjY=-10c0.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli-linux-arm64/-/cli-linux-arm64-2.58.6.tgz",
+        "sha512": "abc98470d366797332e62fa3593df44d5a47ecb70fe070f6d420f95d148f01dfdaf75d8717a1292b4c9b7ffd5448ed7858e8685db0068bdb71c1a59a6d27b7de",
+        "dest-filename": "cli-linux-arm64-QHNlbnRyeS9jbGktbGludXgtYXJtNjRAbnBtOjIuNTguNg==-10c0.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli-linux-i686/-/cli-linux-i686-2.58.6.tgz",
+        "sha512": "abcbcd262d5e395ff8bf1005581b04c0b1e84986a96991c87f88fbe8a24625714a4e411bb2308e3ac29bc142014d04214605780c55a1debc9fb0f4bfaae7b82a",
+        "dest-filename": "cli-linux-i686-QHNlbnRyeS9jbGktbGludXgtaTY4NkBucG06Mi41OC42-10c0.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli-linux-x64/-/cli-linux-x64-2.58.6.tgz",
+        "sha512": "0d9bbde7a3218b76518d305ed5675b195e3a95d55b03c776ae0a7f7e1e751ac236e738c11da878c199cf4d2ce973e62ac54ea9269839efd07faf78eb20ae77d1",
+        "dest-filename": "cli-linux-x64-QHNlbnRyeS9jbGktbGludXgteDY0QG5wbToyLjU4LjY=-10c0.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli-win32-arm64/-/cli-win32-arm64-2.58.6.tgz",
+        "sha512": "9e3d057ff926001ef710f0e147c0783bdafe3541cae4690f0a41960be91755e9aa00958be63709e4a7711b497f4b4cfa46812896d203f3fe37fc1f9368c953ec",
+        "dest-filename": "cli-win32-arm64-QHNlbnRyeS9jbGktd2luMzItYXJtNjRAbnBtOjIuNTguNg==-10c0.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli-win32-i686/-/cli-win32-i686-2.58.6.tgz",
+        "sha512": "58d6620f33db82c10c416ab86afb10dfdd6fff158a243216596a3d19897e37fc39a9c60a9280d6ef0406ed3f456ac23a10d9faf298428533803d75f16df01d3a",
+        "dest-filename": "cli-win32-i686-QHNlbnRyeS9jbGktd2luMzItaTY4NkBucG06Mi41OC42-10c0.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli-win32-x64/-/cli-win32-x64-2.58.6.tgz",
+        "sha512": "477e56275ee81780f67aa2350d1dac410aabd1f8d14ede71a0fd7a5ab4eef755ccda59dd44c16c9e387efc6b6d6f16a92c204d96b8f389af7d309d0f64766980",
+        "dest-filename": "cli-win32-x64-QHNlbnRyeS9jbGktd2luMzIteDY0QG5wbToyLjU4LjY=-10c0.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/@sentry/cli/-/cli-2.58.6.tgz",
+        "sha512": "6da05c34f2cb7d48bd5ae2fe4e9ae2f4115a01dbee81920a7a50b95f4b6dd19772f8ad0af8f0954ab9cd9b031653f1f2685fd212fe9be941e75c876a6a706572",
+        "dest-filename": "cli-QHNlbnRyeS9jbGlAbnBtOjIuNTguNg==-3037c8c03d.tgz",
+        "dest": "flatpak-node/yarn-berry/cache/locator"
+    },
+    {
+        "type": "file",
         "url": "https://registry.npmjs.org/@sentry/conventions/-/conventions-0.15.1.tgz",
         "sha512": "64b3fc6d174c38dde9ad6136b49c889ae62c702c5d7097883c886b3acfeb832166dc2d670a1d41ea076f3e3dc0679cd6d3ca121450acabb4feb58116de1f0c34",
         "dest-filename": "conventions-QHNlbnRyeS9jb252ZW50aW9uc0BucG06MC4xNS4x-b80f6ad6a7.tgz",
