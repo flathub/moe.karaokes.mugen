@@ -898,9 +898,6 @@ modules:
         YARN_ENABLE_NETWORK: '0'
         YARN_ENABLE_GLOBAL_CACHE: '0'
     build-commands:
-      - >-
-        install -D sentry-cli-Linux-$(gcc -dumpmachine | awk -F- {'print $1'})
-        /app/bin/sentry-cli
       - install -d v8.14.5/
       - sed -i 's/\"karaokemugen-app\"/\"moe.karaokes.mugen\"/g' package.json
       - >-
@@ -910,7 +907,7 @@ modules:
         yarn plugin import
         $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
       - yarn convertToZip $(which yarn)
-      - SENTRYCLI_USE_LOCAL=1 yarn install
+      - yarn install
       - yarn remove corepack
       - yarn build
       - yarn installkmfrontend
@@ -955,15 +952,3 @@ modules:
         path: moe.karaokes.mugen.metainfo.xml
       - type: file
         path: moe.karaokes.mugen.desktop
-      - type: file
-        url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.4.0/sentry-cli-Linux-x86_64
-        sha256: 803556dd09de4fe54639c4d2e696315fd5a67dda3f8fe8dfe52a942ead5a2ae1
-        only-arches:
-          - x86_64
-      - type: file
-        url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.4.0/sentry-cli-Linux-aarch64
-        sha256: 1273fe22639e394e0c8d2bd097da13b25139e75e977c5ce44c6f54130664ea45
-        only-arches:
-          - aarch64
