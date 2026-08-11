@@ -34,9 +34,10 @@ modules:
   - name: git
     buildsystem: simple
     build-commands:
-      # Copy git from SDK
       - mkdir ${FLATPAK_DEST}/libexec
-      - cp -av /usr/bin/git{,-cvsserver,-lfs,-receive-pack,-shell,-upload-archive,-upload-pack}
+      - >-
+        cp -av
+        /usr/bin/git{,-cvsserver,-lfs,-receive-pack,-shell,-upload-archive,-upload-pack}
         ${FLATPAK_DEST}/bin
       - cp -arv /usr/libexec/git-core ${FLATPAK_DEST}/libexec
       - cp -arv /usr/share/git{-core,web} ${FLATPAK_DEST}/share
@@ -239,10 +240,6 @@ modules:
           type: git
           url: https://codeberg.org/api/v1/repos/ccxvii/mujs/tags
           tag-pattern: ^([\d.]+)$
-      # The unicode character database files are downloaded in the makefile rules `UnicodeData.txt` and `SpecialCasing.txt`.
-      # This does not work with flatpak because there is no network access during the build step.
-      #
-      # TODO: check for updated urls when updating mujs
       - type: file
         url: https://www.unicode.org/Public/16.0.0/ucd/UnicodeData.txt
         sha256: ff58e5823bd095166564a006e47d111130813dcf8bf234ef79fa51a870edb48f
@@ -396,11 +393,12 @@ modules:
     sources:
       - type: archive
         dest-filename: vapoursynth.tar.gz
-        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R73 # Lock at 73, starting from 74 the build system changed and needs different build step(s) with python
+        url: https://api.github.com/repos/vapoursynth/vapoursynth/tarball/R73
         sha256: 9c02a68b29eb446b2d0b1be3d831420fdc2bd703aacccc468faef9f94e3bf85f
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/vapoursynth/vapoursynth/releases/tags/R73
+          url: >-
+            https://api.github.com/repos/vapoursynth/vapoursynth/releases/tags/R73
           version-query: .name
           timestamp-query: .published_at
           url-query: .tarball_url
@@ -562,7 +560,8 @@ modules:
       - pip3 install --prefix=/app urllib3*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl
+        url: >-
+          https://files.pythonhosted.org/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl
         sha256: 9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897
         x-checker-data:
           type: pypi
@@ -938,8 +937,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: d5472d4ff748612130aaf41b041398274056c278
-        tag: 9.0.52
+        commit: 7f3af833e9c7687b74b90d00616b9dc0ee8a64fa
+        tag: 9.0.60
         x-checker-data:
           type: git
           is-main-source: true
