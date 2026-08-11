@@ -175,8 +175,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/tesseract-ocr/tesseract.git
-        tag: 5.5.2
-        commit: 6e1d56a847e697de07b38619356550e5cf4e8633
+        tag: 5.5.3
+        commit: db0ec62f81b0737fbbe184d8fea40af5738f8eef
         x-checker-data:
           type: json
           url: https://api.github.com/repos/tesseract-ocr/tesseract/releases/latest
@@ -193,8 +193,8 @@ modules:
       - --with-pic
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-27.tar.gz
-        sha256: 485dad5226fda2417ea65f3eb6e3f63e7d5dfacacdf6f57f9c39b6ef1e3cb667
+        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-29.tar.gz
+        sha256: b05924ad73c6932ba62c9b32f338f0619b90b767162c8b767f3566556187a284
         x-checker-data:
           type: anitya
           project-id: 1372
@@ -258,8 +258,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/FFmpeg/nv-codec-headers.git
-        tag: n13.0.19.0
-        commit: e844e5b26f46bb77479f063029595293aa8f812d
+        tag: n13.1.15.0
+        commit: 0a6fba9a2820628b8103464f4c8753ee05838baa
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]+)$
@@ -299,8 +299,8 @@ modules:
       - -DBUILD_TESTS=OFF
     sources:
       - type: git
-        commit: 7a0c07111a3d7230ec534e08925c24a7525f33c0
-        tag: v1.3.4
+        commit: 6cc5b15a73e9bd97810d03767082edda7f315881
+        tag: v1.3.5
         url: https://github.com/hoene/libmysofa.git
         x-checker-data:
           type: git
@@ -369,8 +369,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/FFmpeg/FFmpeg.git
-        commit: 38b88335f99e76ed89ff3c93f877fdefce736c13
-        tag: n8.1.2
+        commit: d32b387f2b0a484599d4587d651891f0c63c4238
+        tag: n9.0
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]{3,7})$
@@ -575,8 +575,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/5e/f5/0c41cb68dcae6b7de4fac4188a3a9589e21fb31df21ea3a2e888db95e6c9/soupsieve-2.8.4-py3-none-any.whl
-        sha256: e7e6b0769c8f51ed59acab6e994b00621096cfb1c640a7509295987388fbaf65
+          https://files.pythonhosted.org/packages/eb/dc/ad025c1ee131eba60c69f4dd5779b18fcf1e6b21a343e2162a84d5d133c7/soupsieve-2.9.2-py3-none-any.whl
+        sha256: 8089a26fd974ca7a1f30276d3d8492ab266ab15af581642dfe8aa162e0c1c823
         x-checker-data:
           type: pypi
           name: soupsieve
@@ -653,8 +653,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/ef/2f/c5464532e965badff2f4c4c1a3a83f5697f0d7c407ed0cda44aaa99bb451/certifi-2026.6.17-py3-none-any.whl
-        sha256: 2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db
+          https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl
+        sha256: 62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775
         x-checker-data:
           type: pypi
           name: certifi
@@ -692,8 +692,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/78/2d/4a161de993dab0baac89b8c5b9765f420e8cc5239c5c82e0f51cb41e5a74/rarfile-4.3-py3-none-any.whl
-        sha256: f9dd2f8bd811b2e30fb074aa176f972f51633aa41cf909db3f2921ed040e1128
+          https://files.pythonhosted.org/packages/f5/36/ffd87452bf72310dfd1185ade33e5b8be374ab370d19573a8197ca25c95b/rarfile-4.5-py3-none-any.whl
+        sha256: c74341f4b9a3a3ebb35ef396d59daf059eb028f34995a7162950a41d97b84de9
         x-checker-data:
           type: pypi
           name: rarfile
@@ -705,8 +705,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/ec/dd/96da98f892250475bdf2328112d7468abdd4acc7b902b6af23f4ed958ea0/pytz-2026.2-py2.py3-none-any.whl
-        sha256: 04156e608bee23d3792fd45c94ae47fae1036688e75032eea2e3bf0323d1f126
+          https://files.pythonhosted.org/packages/0f/7b/39c34ca613b0b198cb866466651b26b045e2009864c5183c979a3b83f383/pytz-2026.3.post1-py2.py3-none-any.whl
+        sha256: dd95840dd199baea12d9cc096a1d452caa6596a1c1e4b5f3dbd1541855d5e815
         x-checker-data:
           type: pypi
           name: pytz
@@ -743,8 +743,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/b4/fe/779514ebf68af3fb6006c26028c6b523acd6dd12e6c4684d87032800ad0f/guessit-4.1.0-py3-none-any.whl
-        sha256: 0a493167b4af4f6a472b43569150b7100ba01e028a519154e05737cc517c4dfe
+          https://files.pythonhosted.org/packages/4c/87/90c2040ffc623ab90993eee9e03ade9ce8168de4d04948b77004d17032c1/guessit-4.4.0-py3-none-any.whl
+        sha256: 565bf82dd6dc8801f357b2eec6a1dd447007f398dbebd06b7b440e303e2df3bc
         x-checker-data:
           type: pypi
           name: guessit
@@ -808,8 +808,8 @@ modules:
     sources:
       - type: file
         url: >-
-          https://files.pythonhosted.org/packages/8c/6c/0a40afdb50a0fe041ab95553b835a8160b6cf0e81edf2ae2fe9f5224cbf9/chardet-7.4.3-py3-none-any.whl
-        sha256: 1173b74051570cf08099d7429d92e4882d375ad4217f92a6e5240ccfb26f231e
+          https://files.pythonhosted.org/packages/36/6b/f195e0d66b1e18ccbcc3adc52c1c7e1263203e70b9bbe12c5a4198d1935b/chardet-7.5.1-py3-none-any.whl
+        sha256: ba7e9b6c15b4fcdf07ae675e5116dee610425f9ad6955c9bdb6bf99aed2e555d
         x-checker-data:
           type: pypi
           name: chardet
@@ -938,8 +938,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: d5472d4ff748612130aaf41b041398274056c278
-        tag: 9.0.52
+        commit: 7f3af833e9c7687b74b90d00616b9dc0ee8a64fa
+        tag: 9.0.60
         x-checker-data:
           type: git
           is-main-source: true
