@@ -12,11 +12,11 @@
 		<control>pointing</control>
 	</supports>
 	<requires>
-  		<!-- ONLY desktop supported -->
-  		<display_length compare="ge">768</display_length>
+		<!-- ONLY desktop supported -->
+		<display_length compare="ge">768</display_length>
 	</requires>
 	<categories>
-  		<category>AudioVideo</category>
+		<category>AudioVideo</category>
 	</categories>
 	<keywords>
 		<keyword>karaoke</keyword>
@@ -29,7 +29,7 @@
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>MIT</project_license>
 	<developer id="mugen.karaokes.moe">
-  		<name>Karaoke Mugen Team</name>
+		<name>Karaoke Mugen Team</name>
 	</developer>
 	<url type="homepage">https://mugen.karaokes.moe/en</url>
 	<url type="contact">https://mugen.karaokes.moe/en/contact.html</url>
@@ -78,7 +78,11 @@
 	Voici le XML avec une URL details ajoutée pour chaque release, en suivant le même modèle que pour la 9.0.60 :
 xml
 
-<releases>
+
+	<releases>
+		<release version="10.0.3" date="2026-09-29">
+			<url type="details">https://gitlab.com/karaokemugen/code/karaokemugen-app/-/releases/10.0.3</url>
+		</release>
 		<release version="9.0.60" date="2026-08-11">
 			<url type="details">https://gitlab.com/karaokemugen/code/karaokemugen-app/-/releases/9.0.60</url>
 		</release>

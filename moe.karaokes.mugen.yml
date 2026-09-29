@@ -49,8 +49,7 @@ modules:
       - make install
     sources:
       - type: archive
-        url: >-
-          https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
+        url: https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
         sha256: 3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5
   - name: libXmu
     buildsystem: autotools
@@ -110,15 +109,13 @@ modules:
       - /share/man
     sources:
       - type: archive
-        url: >-
-          https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz
+        url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz
         sha256: e97a60cfc00a1c147a674b097bb1422abd9fa78a2d9ce3f3fdcc2e78a34ac5f0
         x-checker-data:
           type: html
           url: https://www.freedesktop.org/software/uchardet/releases/
           version-pattern: uchardet-(\d\.\d+\.?\d*).tar.xz
-          url-template: >-
-            https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz
+          url-template: https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz
   - name: libass
     cleanup:
       - /include
@@ -312,15 +309,13 @@ modules:
     sources:
       - type: archive
         archive-type: tar
-        url: >-
-          https://downloads.sourceforge.net/sourceforge/bs2b/libbs2b-3.1.0.tar.gz
+        url: https://downloads.sourceforge.net/sourceforge/bs2b/libbs2b-3.1.0.tar.gz
         sha256: 6aaafd81aae3898ee40148dd1349aab348db9bfae9767d0e66e0b07ddd4b2528
         x-checker-data:
           type: html
           url: https://sourceforge.net/projects/bs2b/files/libbs2b/
           version-pattern: projects/bs2b/files/libbs2b/(\d+\.\d+\.\d+)
-          url-template: >-
-            https://downloads.sourceforge.net/sourceforge/bs2b/libbs2b-$version.tar.gz
+          url-template: https://downloads.sourceforge.net/sourceforge/bs2b/libbs2b-$version.tar.gz
       - type: shell
         commands:
           - sed -i -e 's/lzma/xz/g' configure.ac
@@ -397,8 +392,7 @@ modules:
         sha256: 9c02a68b29eb446b2d0b1be3d831420fdc2bd703aacccc468faef9f94e3bf85f
         x-checker-data:
           type: json
-          url: >-
-            https://api.github.com/repos/vapoursynth/vapoursynth/releases/tags/R73
+          url: https://api.github.com/repos/vapoursynth/vapoursynth/releases/tags/R73
           version-query: .name
           timestamp-query: .published_at
           url-query: .tarball_url
@@ -428,8 +422,7 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: >-
-          https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.2.0/libdisplay-info-0.2.0.tar.gz
+        url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.2.0/libdisplay-info-0.2.0.tar.gz
         sha256: f7331fcaf5527251b84c8fb84238d06cd2f458422ce950c80e86c72927aa8c2b
   - name: mpv
     buildsystem: meson
@@ -539,16 +532,14 @@ modules:
       - pip3 install --prefix=/app six*.whl python_dateutil*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl
         sha256: 4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274
         x-checker-data:
           type: pypi
           name: six
           packagetype: bdist_wheel
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl
         sha256: a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
         x-checker-data:
           type: pypi
@@ -560,8 +551,7 @@ modules:
       - pip3 install --prefix=/app urllib3*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl
         sha256: 9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897
         x-checker-data:
           type: pypi
@@ -573,8 +563,7 @@ modules:
       - pip3 install --prefix=/app soupsieve*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/eb/dc/ad025c1ee131eba60c69f4dd5779b18fcf1e6b21a343e2162a84d5d133c7/soupsieve-2.9.2-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/eb/dc/ad025c1ee131eba60c69f4dd5779b18fcf1e6b21a343e2162a84d5d133c7/soupsieve-2.9.2-py3-none-any.whl
         sha256: 8089a26fd974ca7a1f30276d3d8492ab266ab15af581642dfe8aa162e0c1c823
         x-checker-data:
           type: pypi
@@ -586,8 +575,7 @@ modules:
       - pip3 install --prefix=/app rebulk-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/01/44/6a16b13cb50ca25cc88928bf85adef1227d21add9c4cd830958d0124d48b/rebulk-6.0.1-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/01/44/6a16b13cb50ca25cc88928bf85adef1227d21add9c4cd830958d0124d48b/rebulk-6.0.1-py3-none-any.whl
         sha256: fe67fd0af60962c7f3957fa01ef0039c43631c09146228698ee22e20ac33907e
         x-checker-data:
           type: pypi
@@ -599,8 +587,7 @@ modules:
       - pip3 install --prefix=/app pbr-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/c0/db/61efa0d08a99f897ef98256b03e563092d36cc38dc4ebe4a85020fe40b31/pbr-7.0.3-py2.py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/c0/db/61efa0d08a99f897ef98256b03e563092d36cc38dc4ebe4a85020fe40b31/pbr-7.0.3-py2.py3-none-any.whl
         sha256: ff223894eb1cd271a98076b13d3badff3bb36c424074d26334cd25aebeecea6b
         x-checker-data:
           type: pypi
@@ -612,8 +599,7 @@ modules:
       - pip3 install --prefix=/app idna-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl
         sha256: 7f952cbe720b688055e3f87de14f5c3e5fdaa8bc3928985c4077ca689de849a2
         x-checker-data:
           type: pypi
@@ -625,8 +611,7 @@ modules:
       - pip3 install --prefix=/app decorator-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/05/7f/798705f5296a58ca505d600456748d1be48078eac8a7050d8a98bc9edb89/decorator-5.3.1-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/05/7f/798705f5296a58ca505d600456748d1be48078eac8a7050d8a98bc9edb89/decorator-5.3.1-py3-none-any.whl
         sha256: f47fe6fdbd2edd623ecfe36875d37aba411624e2670dd395dddae1358689bb3c
         x-checker-data:
           type: pypi
@@ -638,8 +623,7 @@ modules:
       - pip3 install --prefix=/app charset_normalizer-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/98/2b/f97f1c193fb855c345d678f5077d6926034db0722df74c8f057020e05a25/charset_normalizer-3.4.9-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/98/2b/f97f1c193fb855c345d678f5077d6926034db0722df74c8f057020e05a25/charset_normalizer-3.4.9-py3-none-any.whl
         sha256: 68e5f26a1ad57ded6d1cfb85331d1c1a195314756471d97758c48498bb4dcdf5
         x-checker-data:
           type: pypi
@@ -651,8 +635,7 @@ modules:
       - pip3 install --prefix=/app certifi-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl
         sha256: 62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775
         x-checker-data:
           type: pypi
@@ -664,8 +647,7 @@ modules:
       - pip3 install --prefix=/app stevedore-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/62/8d/008761f6e1000600e5303db30d05724bdcf3d2d186cbb59fac79b52e39ed/stevedore-5.9.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/62/8d/008761f6e1000600e5303db30d05724bdcf3d2d186cbb59fac79b52e39ed/stevedore-5.9.0-py3-none-any.whl
         sha256: e520945d4c257700eddc1eb1d79df04b2ea578eef185e0e3fa5b442fc848d3f7
         x-checker-data:
           type: pypi
@@ -677,8 +659,7 @@ modules:
       - pip3 install --prefix=/app requests-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl
         sha256: 2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0
         x-checker-data:
           type: pypi
@@ -690,8 +671,7 @@ modules:
       - pip3 install --prefix=/app rarfile-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/f5/36/ffd87452bf72310dfd1185ade33e5b8be374ab370d19573a8197ca25c95b/rarfile-4.5-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/f5/36/ffd87452bf72310dfd1185ade33e5b8be374ab370d19573a8197ca25c95b/rarfile-4.5-py3-none-any.whl
         sha256: c74341f4b9a3a3ebb35ef396d59daf059eb028f34995a7162950a41d97b84de9
         x-checker-data:
           type: pypi
@@ -703,8 +683,7 @@ modules:
       - pip3 install --prefix=/app pytz-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/0f/7b/39c34ca613b0b198cb866466651b26b045e2009864c5183c979a3b83f383/pytz-2026.3.post1-py2.py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/0f/7b/39c34ca613b0b198cb866466651b26b045e2009864c5183c979a3b83f383/pytz-2026.3.post1-py2.py3-none-any.whl
         sha256: dd95840dd199baea12d9cc096a1d452caa6596a1c1e4b5f3dbd1541855d5e815
         x-checker-data:
           type: pypi
@@ -716,8 +695,7 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: >-
-          https://files.pythonhosted.org/packages/31/1a/0d858da1c6622dcf16011235a2639b0a01a49cecf812f8ab03308ab4de37/pysrt-1.1.2.tar.gz
+        url: https://files.pythonhosted.org/packages/31/1a/0d858da1c6622dcf16011235a2639b0a01a49cecf812f8ab03308ab4de37/pysrt-1.1.2.tar.gz
         sha256: b4f844ba33e4e7743e9db746492f3a193dc0bc112b153914698e7c1cdeb9b0b9
         x-checker-data:
           type: pypi
@@ -728,8 +706,7 @@ modules:
       - pip3 install --prefix=/app babelfish-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/95/a1/bd4f759db13cd8beb9c9f68682aced5d966781b9d7380cf514a306f56762/babelfish-0.6.1-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/95/a1/bd4f759db13cd8beb9c9f68682aced5d966781b9d7380cf514a306f56762/babelfish-0.6.1-py3-none-any.whl
         sha256: 512f1501d4c8f7d38f0921f48660be7542de1a7b24abb6a6a65324a670150293
         x-checker-data:
           type: pypi
@@ -741,8 +718,7 @@ modules:
       - pip3 install --prefix=/app guessit-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/4c/87/90c2040ffc623ab90993eee9e03ade9ce8168de4d04948b77004d17032c1/guessit-4.4.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/4c/87/90c2040ffc623ab90993eee9e03ade9ce8168de4d04948b77004d17032c1/guessit-4.4.0-py3-none-any.whl
         sha256: 565bf82dd6dc8801f357b2eec6a1dd447007f398dbebd06b7b440e303e2df3bc
         x-checker-data:
           type: pypi
@@ -754,8 +730,7 @@ modules:
       - pip3 install --prefix=/app enzyme-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/67/bc/be0fbce0eb198f4361f462520122151b0ec347ecaeb5d349cf36ae0ac751/enzyme-0.5.2-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/67/bc/be0fbce0eb198f4361f462520122151b0ec347ecaeb5d349cf36ae0ac751/enzyme-0.5.2-py3-none-any.whl
         sha256: 5a85306c136368d78f299bb74bf0c5f5d37e2689adc5caec5aba5ee2f029296b
         x-checker-data:
           type: pypi
@@ -767,8 +742,7 @@ modules:
       - pip3 install --prefix=/app typing*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl
         sha256: 481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8
         x-checker-data:
           type: pypi
@@ -780,8 +754,7 @@ modules:
       - pip3 install --prefix=/app dogpile*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/dc/80/12235e5b75bb2c586733280854f131b86051e0bbdfb55349ff70d0f72cf9/dogpile_cache-1.5.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/dc/80/12235e5b75bb2c586733280854f131b86051e0bbdfb55349ff70d0f72cf9/dogpile_cache-1.5.0-py3-none-any.whl
         sha256: dc7b47d37844db15e8fdc0243c1b58857a2ddc52a5118237a97127bac200e18d
         x-checker-data:
           type: pypi
@@ -793,8 +766,7 @@ modules:
       - pip3 install --prefix=/app click-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/fb/e2/79c688af8b210d232694e31e59da9f6ec747bae31c3f5946e4e9b98860d5/click-8.4.2-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/fb/e2/79c688af8b210d232694e31e59da9f6ec747bae31c3f5946e4e9b98860d5/click-8.4.2-py3-none-any.whl
         sha256: e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76
         x-checker-data:
           type: pypi
@@ -806,8 +778,7 @@ modules:
       - pip3 install --prefix=/app chardet-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/36/6b/f195e0d66b1e18ccbcc3adc52c1c7e1263203e70b9bbe12c5a4198d1935b/chardet-7.5.1-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/36/6b/f195e0d66b1e18ccbcc3adc52c1c7e1263203e70b9bbe12c5a4198d1935b/chardet-7.5.1-py3-none-any.whl
         sha256: ba7e9b6c15b4fcdf07ae675e5116dee610425f9ad6955c9bdb6bf99aed2e555d
         x-checker-data:
           type: pypi
@@ -819,8 +790,7 @@ modules:
       - pip3 install --prefix=/app beautifulsoup4-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/88/c6/92fcd42f1ba33e1184263f25bfabf3d27c383410470f169e4b8163bf9c17/beautifulsoup4-4.15.0-py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/88/c6/92fcd42f1ba33e1184263f25bfabf3d27c383410470f169e4b8163bf9c17/beautifulsoup4-4.15.0-py3-none-any.whl
         sha256: d6f88de62e1d4e38ecb1077eb9724cd0eff29d2a08ca16a401e9b9e93f117cf9
         x-checker-data:
           type: pypi
@@ -832,8 +802,7 @@ modules:
       - pip3 install --prefix=/app appdirs-*.whl
     sources:
       - type: file
-        url: >-
-          https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
+        url: https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
         sha256: a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128
         x-checker-data:
           type: pypi
@@ -937,8 +906,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: d0b073e1ac389f3b75c50d0593c04af3838a7dd1
-        tag: 9.0.60
+        commit: 7c17a0d57be9167152921a91ca520c3959733f2e
+        tag: 10.0.3
         x-checker-data:
           type: git
           is-main-source: true
@@ -956,14 +925,12 @@ modules:
       - type: file
         path: moe.karaokes.mugen.desktop
       - type: file
-        url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.4.0/sentry-cli-Linux-x86_64
+        url: https://downloads.sentry-cdn.com/sentry-cli/3.4.0/sentry-cli-Linux-x86_64
         sha256: 803556dd09de4fe54639c4d2e696315fd5a67dda3f8fe8dfe52a942ead5a2ae1
         only-arches:
           - x86_64
       - type: file
-        url: >-
-          https://downloads.sentry-cdn.com/sentry-cli/3.4.0/sentry-cli-Linux-aarch64
+        url: https://downloads.sentry-cdn.com/sentry-cli/3.4.0/sentry-cli-Linux-aarch64
         sha256: 1273fe22639e394e0c8d2bd097da13b25139e75e977c5ce44c6f54130664ea45
         only-arches:
           - aarch64
