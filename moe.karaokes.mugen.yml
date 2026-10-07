@@ -906,8 +906,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: 461f688969fcf52c7633fad4406758c2fcb8f734
-        tag: 10.0.3
+        commit: 085889ee1f8b9dda0e52c7211a5b7a853609e9bd
+        tag: 10.0.5
         x-checker-data:
           type: git
           is-main-source: true
