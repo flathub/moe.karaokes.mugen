@@ -191,8 +191,8 @@ modules:
       - --with-pic
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-29.tar.gz
-        sha256: b05924ad73c6932ba62c9b32f338f0619b90b767162c8b767f3566556187a284
+        url: https://github.com/ImageMagick/ImageMagick/archive/7.1.2-34.tar.gz
+        sha256: f5163a573a1c1bff16358d0a592b2fb168ad0fd3b9dc5ff57dc7820eebc5cf79
         x-checker-data:
           type: anitya
           project-id: 1372
@@ -231,8 +231,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/ccxvii/mujs.git
-        tag: 1.3.8
-        commit: 307f18c4216420f2f56e22d8e7040baa39a6304a
+        tag: 1.3.11
+        commit: 01a75ff4324ae8a54cae91a26edd38029424edaa
         x-checker-data:
           type: git
           url: https://codeberg.org/api/v1/repos/ccxvii/mujs/tags
@@ -361,8 +361,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/FFmpeg/FFmpeg.git
-        commit: d32b387f2b0a484599d4587d651891f0c63c4238
-        tag: n9.0
+        commit: 946fcce07b6dcd0331c8cc609192aeff5e1924f8
+        tag: n9.0.2
         x-checker-data:
           type: git
           tag-pattern: ^n([\d.]{3,7})$
@@ -498,12 +498,12 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/ed/ed-1.22.5.tar.lz
+        url: https://ftp.gnu.org/gnu/ed/ed-1.22.6.tar.lz
         mirror-urls:
           - https://mirrors.kernel.org/gnu/ed/ed-1.20.1.tar.lz
           - https://mirrors.ocf.berkeley.edu/gnu/ed/ed-1.20.1.tar.lz
           - https://ftpmirror.gnu.org/gnu/ed/ed-1.20.1.tar.lz
-        sha256: 56e107ddc2f29dad6690376c15bf9751509e1ee3b8241710e44edbe5c3a158cc
+        sha256: 3f33b22135219c39c3c695f7b7171c2567d3e2a17c798c0a90607320cbb268f2
         x-checker-data:
           type: html
           url: https://ftp.gnu.org/gnu/ed/
@@ -551,8 +551,8 @@ modules:
       - pip3 install --prefix=/app urllib3*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl
-        sha256: 9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897
+        url: https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl
+        sha256: 0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3
         x-checker-data:
           type: pypi
           name: urllib3
@@ -563,8 +563,8 @@ modules:
       - pip3 install --prefix=/app soupsieve*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/eb/dc/ad025c1ee131eba60c69f4dd5779b18fcf1e6b21a343e2162a84d5d133c7/soupsieve-2.9.2-py3-none-any.whl
-        sha256: 8089a26fd974ca7a1f30276d3d8492ab266ab15af581642dfe8aa162e0c1c823
+        url: https://files.pythonhosted.org/packages/49/ca/f639c80449997b88aba7bc9705d25dd76cc0844f45f187862fd8f8bb18fa/soupsieve-3.0.3-py3-none-any.whl
+        sha256: fa30e3ba4809cb81ce1f3209f2fbe3e779fc445f0439bc147a0d7c4601743f21
         x-checker-data:
           type: pypi
           name: soupsieve
@@ -587,8 +587,8 @@ modules:
       - pip3 install --prefix=/app pbr-*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/c0/db/61efa0d08a99f897ef98256b03e563092d36cc38dc4ebe4a85020fe40b31/pbr-7.0.3-py2.py3-none-any.whl
-        sha256: ff223894eb1cd271a98076b13d3badff3bb36c424074d26334cd25aebeecea6b
+        url: https://files.pythonhosted.org/packages/bb/a2/79a926b7ab54b247c3419bfa00cfbeb78ad495d21c6d787c978c6261623d/pbr-7.1.3-py2.py3-none-any.whl
+        sha256: 6583e878a1d97cb135fdc509811f31b9235905cde8d4dacd3dbadf9efc45d745
         x-checker-data:
           type: pypi
           name: pbr
@@ -599,8 +599,8 @@ modules:
       - pip3 install --prefix=/app idna-*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl
-        sha256: 7f952cbe720b688055e3f87de14f5c3e5fdaa8bc3928985c4077ca689de849a2
+        url: https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl
+        sha256: ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c
         x-checker-data:
           type: pypi
           name: idna
@@ -623,8 +623,8 @@ modules:
       - pip3 install --prefix=/app charset_normalizer-*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/98/2b/f97f1c193fb855c345d678f5077d6926034db0722df74c8f057020e05a25/charset_normalizer-3.4.9-py3-none-any.whl
-        sha256: 68e5f26a1ad57ded6d1cfb85331d1c1a195314756471d97758c48498bb4dcdf5
+        url: https://files.pythonhosted.org/packages/fc/ad/d07d7862a62ffa6d79d68074d14823243dd235a77c45262acbf6adeb28bf/charset_normalizer-3.5.2-py3-none-any.whl
+        sha256: b6b751274acb69d77b3323d6b7dbaa3c7fdfc1eb829b7eb61d262f32e1af9685
         x-checker-data:
           type: pypi
           name: charset_normalizer
@@ -647,8 +647,8 @@ modules:
       - pip3 install --prefix=/app stevedore-*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/62/8d/008761f6e1000600e5303db30d05724bdcf3d2d186cbb59fac79b52e39ed/stevedore-5.9.0-py3-none-any.whl
-        sha256: e520945d4c257700eddc1eb1d79df04b2ea578eef185e0e3fa5b442fc848d3f7
+        url: https://files.pythonhosted.org/packages/c5/97/bba6e7ec2f5498b9dcb7b1b6400086b80ae5a8ebaff4b25e8c8add75f439/stevedore-5.9.1-py3-none-any.whl
+        sha256: 5c8ff3a9f336cc1a06ac0f597bc79d11a2f950bfd32e290ca56b5a301fafafbf
         x-checker-data:
           type: pypi
           name: stevedore
@@ -683,8 +683,8 @@ modules:
       - pip3 install --prefix=/app pytz-*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/0f/7b/39c34ca613b0b198cb866466651b26b045e2009864c5183c979a3b83f383/pytz-2026.3.post1-py2.py3-none-any.whl
-        sha256: dd95840dd199baea12d9cc096a1d452caa6596a1c1e4b5f3dbd1541855d5e815
+        url: https://files.pythonhosted.org/packages/4f/ef/c66110d46fb800dda0bf33164182dfadabe26a90e4476844d502a23dca8e/pytz-2026.5-py2.py3-none-any.whl
+        sha256: e658af3757f9e26a9d25dd2aff38335acd92bc9104f890a894b2c1ba28311b03
         x-checker-data:
           type: pypi
           name: pytz
@@ -766,8 +766,8 @@ modules:
       - pip3 install --prefix=/app click-*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/fb/e2/79c688af8b210d232694e31e59da9f6ec747bae31c3f5946e4e9b98860d5/click-8.4.2-py3-none-any.whl
-        sha256: e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76
+        url: https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl
+        sha256: 255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360
         x-checker-data:
           type: pypi
           name: click
@@ -778,8 +778,8 @@ modules:
       - pip3 install --prefix=/app chardet-*.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/36/6b/f195e0d66b1e18ccbcc3adc52c1c7e1263203e70b9bbe12c5a4198d1935b/chardet-7.5.1-py3-none-any.whl
-        sha256: ba7e9b6c15b4fcdf07ae675e5116dee610425f9ad6955c9bdb6bf99aed2e555d
+        url: https://files.pythonhosted.org/packages/cc/75/88a3eb36264375ff951bd2f9397c409727ab6aa6a18e1bd933851571d421/chardet-7.7.0-py3-none-any.whl
+        sha256: 11cf9b719ea3675a2a7d8a3071bbe4d7ea24b26bfe39a51588d515ddd05cacad
         x-checker-data:
           type: pypi
           name: chardet
@@ -906,8 +906,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/karaokemugen/code/karaokemugen-app
-        commit: 085889ee1f8b9dda0e52c7211a5b7a853609e9bd
-        tag: 10.0.5
+        commit: 563ffd25d14e334aa5725f921ca8608c5a9d4baa
+        tag: 10.0.6
         x-checker-data:
           type: git
           is-main-source: true
