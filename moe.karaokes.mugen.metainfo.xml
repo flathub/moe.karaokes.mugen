@@ -81,6 +81,9 @@ xml
 
 	
 	<releases>
+		<release version="10.0.6" date="2026-10-18">
+			<description></description>
+		</release>
 		<release version="10.0.5" date="2026-10-07">
 			<url type="details">https://gitlab.com/karaokemugen/code/karaokemugen-app/-/releases/10.0.5</url>
 		</release>
